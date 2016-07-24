@@ -1,0 +1,29 @@
+{
+  "scm": {
+    "value": "1",
+    "userRemoteConfigs": {
+      "url": "https://github.com/tsxuehu/android.git",
+      "credentialsId": "ssh",
+      "name": "",
+      "refspec": ""
+    },
+    "branches": {
+      "name": "*/master"
+    },
+    "": "auto"
+  },
+  "builder": {
+    "useWrapper": "false",
+    "gradleName": "local",
+    "makeExecutable": false,
+    "fromRootBuildScriptDir": true,
+    "description": "",
+    "switches": "clean build",
+    "tasks": "",
+    "rootBuildScriptDir": "",
+    "buildFile": "",
+    "useWorkspaceAsHome": false,
+    "stapler-class": "hudson.plugins.gradle.Gradle",
+    "$class": "hudson.plugins.gradle.Gradle"
+  }
+}

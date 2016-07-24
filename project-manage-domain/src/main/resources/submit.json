@@ -1,0 +1,24 @@
+{
+  "scm": {
+    "value": "1",
+    "userRemoteConfigs": {
+      "url": "https://github.com/tsxuehu/android.git",
+      "credentialsId": "ssh",
+      "name": "origin",
+      "refspec": ""
+    },
+    "branches": {
+      "name": "*/master"
+    },
+    "": "auto",
+    "extensions": {
+      "options": {
+        "mergeRemote": "origin",
+        "mergeTarget": "branch2",
+        "mergeStrategy": "default",
+        "fastForwardMode": "FF"
+      },
+      "$class": "hudson.plugins.git.extensions.impl.PreBuildMerge"
+    }
+  }
+}

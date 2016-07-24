@@ -1,0 +1,23 @@
+*.iml
+*.ipr
+*.iws
+.idea/
+
+target/
+work/
+
+.project
+.classpath
+.settings/
+
+/nb-configuration.xml
+
+# Vim
+*.swp
+Session.vim
+
+# Exhuberant ctags
+tags
+
+# emacs backup files
+*~
