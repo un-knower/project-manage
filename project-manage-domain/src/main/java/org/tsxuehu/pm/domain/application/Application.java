@@ -17,28 +17,44 @@ import java.util.List;
  */
 public class Application {
 
+    public static final String MAVEN_PROJECT="maven";
+
+
     public static final String PRIVATE_TOKEN = "2iAZn7fTUjKV9xsiS4KR";
     public static final String GITLAB_HOST = "http://gitlab.qima-inc.com/";
 
-    String ownerId;//应用所有人id
+
+    Long id;
+    String name;
+    String description;
+    String appType;
+
+    Long ownerId;//应用所有人id
     String ownerNick;//应用所有人昵称
     //授权
 
     //仓库的gitlab的project id(第一期只支持gitlab,且只有一个仓库地址。 用project id标识)
-    protected String projectId;//格式NAMESPACE/PROJECT_NAME
+    protected String gitlabId;//格式NAMESPACE/PROJECT_NAME
 
     protected List<Branch> developingBranches;//所有正在开发的分支
     protected List<Branch> dailyBranches;//所有进入日常的分支
     protected List<Branch> preBranches;//所有进入预发的分支
+    protected List<Branch> onlineBranches;//所有进入线上的分支
+
+    protected String dailyDeployBranchName;//日常部署分支名
+    protected boolean isDailyFree;//日常环境是否空间,没有正在构建
+
+    protected String preDeployBranchName;//预发部署分支名
+    protected boolean isPreFree;//预发环境是否空间,没有正在构建
 
     /**
      * 通过子类构造创建
      *
      * @param name
-     * @param applicationType
+     * @param
      * @param creator
      */
-    public static void createApplication(String name, ApplicationType applicationType, User creator) {
+    public static void createApplication(String name, String description,User creator) {
 
     }
 
@@ -96,11 +112,58 @@ public class Application {
         Date date = new Date();
         String actualBranchName = newBranchName + "_" + dateFormater.format(date);
         GitlabAPI gitlabAPI = GitlabAPI.connect(Application.GITLAB_HOST, Application.PRIVATE_TOKEN);
-        gitlabAPI.createBranch(projectId, actualBranchName, fromBranch);
+        gitlabAPI.createBranch(gitlabId, actualBranchName, fromBranch);
         return actualBranchName;
     }
 
     public void deleteBranche() {
+
+    }
+
+    public void enterDaily(long branchId){
+
+    }
+
+    public void removeDailyBranches(long branchId){
+
+    }
+
+    public void buidDaily(){
+
+    }
+
+    /**
+     * 获取日常构建状态
+     */
+    public BuildStatus getDailyStatus(){
+        //所有分支
+        //进入日常的分支
+        //构建、部署进度
+        return null;
+
+    }
+
+    public void enterPre(){
+
+    }
+
+    public void removePreBranches(){
+
+    }
+
+    public void buidPre(){
+
+    }
+
+    public void enterOnlineBranches(){
+
+    }
+
+    public void removeOnlineBranches(){
+
+    }
+
+    public void buidOnline(){
 
     }
 }
