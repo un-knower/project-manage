@@ -1,15 +1,25 @@
 /**
  * Created by tsxuehu on 16/8/3.
  */
-export default function counter(state = 0, action) {
+export default function counter(state, action) {
+
+  const value = state['value'];
+  var now = 0;
   switch (action.type) {
     case 'INCREMENT':
-      return state + 1
+      now = value + 1;
+      break;
     case 'INCREMENT_IF_ODD':
-      return (state % 2 !== 0) ? state + 1 : state
+      now = (value % 2 !== 0) ? value + 1 : value;
+      break;
     case 'DECREMENT':
-      return state - 1
+      now = value - 1;
+      break;
     default:
-      return state
+      now = value;
+      break;
+
+
   }
+  return {value: now}
 }

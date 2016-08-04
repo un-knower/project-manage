@@ -1,19 +1,19 @@
 /**
  * Created by tsxuehu on 16/8/4.
  */
-export function onIncrement(login, nextPage) {
+export function onIncrement() {
   return (dispatch, getState) => {
     return dispatch({type:'INCREMENT'})
   }
 }
 
-export function onDecrement(login, nextPage) {
+export function onDecrement() {
   return (dispatch, getState) => {
     return dispatch({type:'DECREMENT'})
   }
 }
 
-export function onIncrementAsync(login, nextPage) {
+export function onIncrementAsync() {
   return (dispatch, getState) => {
     return dispatch({type:'INCREMENT_ASYNC'})
   }
