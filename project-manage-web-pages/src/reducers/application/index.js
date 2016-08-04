@@ -2,7 +2,6 @@
  * Created by tsxuehu on 16/8/3.
  */
 export default function counter(state = 0, action) {
-  debugger
   switch (action.type) {
     case 'INCREMENT':
       return state + 1
