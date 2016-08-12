@@ -1,6 +1,7 @@
 package org.tsxuehu.pm.domain.project;
 
-import org.tsxuehu.pm.domain.application.scm.Branch;
+import org.tsxuehu.pm.domain.application.Application;
+import org.tsxuehu.pm.domain.application.Branch;
 import org.tsxuehu.pm.domain.user.User;
 
 import java.util.List;
@@ -26,9 +27,9 @@ public class Project {
 
     /**
      * 开发分支列表
-     * 格式
+     *
      */
-    Map<Long,List<Long>> branches;
+    Map<Application,List<Branch>> branches;
     /**
      * 创建分支
      */
@@ -36,4 +37,5 @@ public class Project {
 
 
     }
+
 }

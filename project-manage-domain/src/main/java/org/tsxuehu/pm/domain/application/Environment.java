@@ -1,7 +1,5 @@
 package org.tsxuehu.pm.domain.application;
 
-import org.tsxuehu.pm.domain.application.scm.Branch;
-
 import java.util.Date;
 import java.util.List;
 

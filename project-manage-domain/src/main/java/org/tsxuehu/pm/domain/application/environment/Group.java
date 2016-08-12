@@ -1,6 +1,6 @@
 package org.tsxuehu.pm.domain.application.environment;
 
-import org.tsxuehu.pm.domain.application.scm.Branch;
+import org.tsxuehu.pm.domain.application.Branch;
 
 import java.util.List;
 import java.util.Map;
