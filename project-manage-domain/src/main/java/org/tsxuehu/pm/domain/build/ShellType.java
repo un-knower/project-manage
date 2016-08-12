@@ -1,4 +1,4 @@
-package org.tsxuehu.pm.domain.build.shell;
+package org.tsxuehu.pm.domain.build;
 
 /**
  * Created by tsxuehu on 16/8/12.

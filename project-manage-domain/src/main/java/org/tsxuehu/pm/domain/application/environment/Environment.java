@@ -7,6 +7,10 @@ import java.util.Map;
  * Created by tsxuehu on 16/8/12.
  */
 public class Environment {
-    //这个配置信息生成配置文件,然后加入到分支打包后的压缩包里
+    /**
+     *   这个配置会作为参数 传递到构建脚本里
+     *   构建脚本可以将键值对生成配置文件放到应用程序包中
+     *   应用程序运行时,可以从配置文件里读到配置信息
+     */
     Map<String,String> configuration;
 }
