@@ -6,13 +6,13 @@
     "method": "sayHello",
     "serviceParams": [
       {
-        "order":1,
+        "order":0,
         "name":"name",
         "type":"java.lang.String",
         "mapAPiParamName":"name"
       } ,
       {
-        "order":2,
+        "order":1,
         "name":"time",
         "type":"java.lang.Integer",
         "mapAPiParamName":"time"

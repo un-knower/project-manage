@@ -13,6 +13,7 @@ import org.tsxuehu.pm.web.service.ApiRegistry;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,8 +39,20 @@ public class WebController {
         for (String paramsName : paramsNames) {
             params.put(paramsName, getValue(paramsName, request, session, maps));
         }
-
-        return JSON.toJSONString(apiDefinition.call(params,apiService.getApplicationContext()));
+        Object result = null;
+        try {
+            result = apiDefinition.call(params, apiService.getApplicationContext());
+            return JSON.toJSONString(result);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return "error";
     }
 
     @RequestMapping(value = {"/*", "/index"}, method = RequestMethod.GET)

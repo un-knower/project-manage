@@ -3,6 +3,7 @@ package org.tsxuehu.pm.domain.api;
 import lombok.Data;
 import org.springframework.context.ApplicationContext;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
@@ -33,17 +34,17 @@ public class ApiDefinition {
      * @param applicationContext
      * @return
      */
-    public Object call(Map<String, String> params, ApplicationContext applicationContext) throws ClassNotFoundException, NoSuchMethodException {
+    public Object call(Map<String, String> params, ApplicationContext applicationContext) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
 
         //获取对象
         Class clazz = Class.forName(this.className);
-        Object object = applicationContext.getBean(clazz);
+        Object target = applicationContext.getBean(clazz);
         //构建参数类型
         Map<Integer, ServiceParam> paramMap = serviceParamMap();
 
         Method method = clazz.getDeclaredMethod(this.method, getTypeArray(paramMap));
         //通过反射调用该对象的方法
-        return null;
+        return   method.invoke(target,getParamArray(paramMap,params));
     }
 
     private Map<Integer, ServiceParam> serviceParamMap() {
@@ -75,14 +76,17 @@ public class ApiDefinition {
                     result[i]=Integer.parseInt(params.get(serviceParam.getMapAPiParamName()));
                     break;
             }
-
-
-
         }
         return result;
     }
 
     public String[] getParamsName() {
-        return null;
+        Map<Integer, ServiceParam> paramMap = serviceParamMap();
+        int length = serviceParams.size();
+        String[] result =new String[length];
+        for(int i =0;i<length;i++){
+            result[i]=paramMap.get(i).getMapAPiParamName();
+        }
+        return result;
     }
 }
