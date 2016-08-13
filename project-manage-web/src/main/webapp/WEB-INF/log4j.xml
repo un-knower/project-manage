@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM
+        "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" threshold="null" debug="null">
+    <appender name="PROJECT" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${carbon.web.loggingRoot}/optianshu.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8" />
+        <param name="threshold" value="${carbon.web.loggingLevel}"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%t %d %-5p %c{2} - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="mtopApiAgentAppender" class="com.alibaba.common.logging.spi.log4j.DailyRollingFileAppender">
+        <param name="file" value="${carbon.web.loggingRoot}/mtopAgent.log"/>
+        <param name="encoding" value="UTF-8" />
+        <param name="append" value="true" />
+        <param name="threshold" value="info"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c - %m%n" />
+        </layout>
+    </appender>
+
+    <logger name="com.taobao.mtop.api" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="mtopApiAgentAppender"/>
+    </logger>
+    <logger name="mtopDynamicHsfLog" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="mtopApiAgentAppender"/>
+    </logger>
+
+    <root>
+        <level value="${carbon.web.loggingLevel}"/>
+        <appender-ref ref="PROJECT"/>
+    </root>
+</log4j:configuration>

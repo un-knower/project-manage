@@ -1,4 +1,4 @@
-package org.tsxuehu.pm.domain.application.environment;
+package org.tsxuehu.pm.domain.environment;
 
 /**
  * Created by tsxuehu on 16/8/12.

@@ -1,4 +1,4 @@
-package org.tsxuehu.pm.domain.application.environment;
+package org.tsxuehu.pm.domain.environment;
 
 /**
  * 正式环境

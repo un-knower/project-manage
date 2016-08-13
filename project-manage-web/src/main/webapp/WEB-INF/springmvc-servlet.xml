@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!--注解驱动测试-->
+    <mvc:annotation-driven />
+
+    <!--这一句指定了扫描注解生成Controller的根包名-->
+    <context:component-scan base-package="org.tsxuehu.pm.web.controller"/>
+
+    <mvc:resources location="/assets/" mapping="/assets/**"/>
+
+
+    <!-- directives for FreeMarker -->
+    <bean id="blockDirective" class="cn.org.rapid_framework.freemarker.directive.BlockDirective" />
+    <bean id="extendsDirective" class="cn.org.rapid_framework.freemarker.directive.ExtendsDirective" />
+    <bean id="overrideDirective" class="cn.org.rapid_framework.freemarker.directive.OverrideDirective" />
+    <bean id="superDirective" class="cn.org.rapid_framework.freemarker.directive.SuperDirective" />
+
+    <!-- 配置freeMarker的模板路径 -->
+    <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="WEB-INF/ftl/" />
+        <property name="defaultEncoding" value="UTF-8" />
+        <property name="freemarkerVariables">
+            <map>
+                <entry key="extends" value-ref="extendsDirective" />
+                <entry key="override" value-ref="overrideDirective" />
+                <entry key="block" value-ref="blockDirective" />
+                <entry key="super" value-ref="superDirective" />
+            </map>
+        </property>
+    </bean>
+    <!-- freemarker视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="suffix" value=".ftl" />
+        <property name="contentType" value="text/html;charset=UTF-8" />
+        <!-- 此变量值为pageContext.request, 页面使用方法：request.contextPath -->
+        <property name="requestContextAttribute" value="request" />
+        <property name="exposeSessionAttributes" value="true" />
+        <property name="allowSessionOverride" value="true" />
+    </bean>
+
+</beans>

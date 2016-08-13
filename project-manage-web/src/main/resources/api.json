@@ -1,0 +1,22 @@
+[
+  {
+    "key": "org.tsxuehu.pm.service.HelloService.sayHello",
+    "version": "1.0.0",
+    "className": "org.tsxuehu.pm.service.HelloService",
+    "method": "sayHello",
+    "serviceParams": [
+      {
+        "order":1,
+        "name":"name",
+        "type":"java.lang.String",
+        "mapAPiParamName":"name"
+      } ,
+      {
+        "order":2,
+        "name":"time",
+        "type":"java.lang.Integer",
+        "mapAPiParamName":"time"
+      }
+    ]
+  }
+]
