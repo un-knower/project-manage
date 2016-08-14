@@ -2,6 +2,8 @@ package org.tsxuehu.pm.domain.scm;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.annotation.JSONField;
+import lombok.Data;
 import org.gitlab.api.GitlabAPI;
 
 import java.io.IOException;
@@ -11,6 +13,7 @@ import java.util.Date;
 /**
  * Created by tsxuehu on 16/7/23.
  */
+@Data
 public class GitlabSCM extends SCM  {
     public static  final String TYPE = "gitlab";
 
@@ -46,6 +49,7 @@ public class GitlabSCM extends SCM  {
     }
 
     @Override
+    @JSONField(serialize=false)
     public String getConfigure() {
         JSONObject jsonObject =new JSONObject();
         jsonObject.put("privateToken",this.privateToken);

@@ -1,6 +1,6 @@
 package org.tsxuehu.pm.dao.impl;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 import org.tsxuehu.pm.dao.SCMDao;
 import org.tsxuehu.pm.dao.dbobject.SCMDO;
 import org.tsxuehu.pm.dao.dbobject.SCMDOExample;
@@ -8,6 +8,7 @@ import org.tsxuehu.pm.dao.mapper.SCMDOMapper;
 import org.tsxuehu.pm.domain.scm.GitlabSCM;
 import org.tsxuehu.pm.domain.scm.SCM;
 import org.tsxuehu.pm.service.DomainFactoryRigistry;
+import org.tsxuehu.pm.service.scm.SCMService;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ import java.util.List;
 /**
  * Created by tsxuehu on 16/8/14.
  */
-@Service("scmDao")
+@Repository("scmDao")
 public class SCMDaoImpl extends DomainFactoryRigistry implements SCMDao {
     @Resource
     SCMDOMapper scmdoMapper;
@@ -41,7 +42,7 @@ public class SCMDaoImpl extends DomainFactoryRigistry implements SCMDao {
 
     @Override
     public Long create(SCM scm) {
-        SCMDO scmdo =new SCMDO();
+        SCMDO scmdo = new SCMDO();
         scmdo.setName(scm.getName());
         scmdo.setType(scm.getType());
         scmdo.setConfigure(scm.getConfigure());
@@ -51,7 +52,7 @@ public class SCMDaoImpl extends DomainFactoryRigistry implements SCMDao {
 
     @Override
     public void update(SCM scm) {
-        SCMDO scmdo =new SCMDO();
+        SCMDO scmdo = new SCMDO();
         scmdo.setId(scm.getId());
         scmdo.setName(scm.getName());
         scmdo.setType(scm.getType());
@@ -62,18 +63,15 @@ public class SCMDaoImpl extends DomainFactoryRigistry implements SCMDao {
     public List<SCM> convert(List<SCMDO> scmdos) {
         List<SCM> scms = new ArrayList<>(scmdos.size());
         for (SCMDO scmdo : scmdos) {
-            scms.add(new SCM(scmdo.getId(), scmdo.getName(), scmdo.getConfigure()));
+            scms.add(new SCM(scmdo.getId(), scmdo.getName(), scmdo.getType()));
         }
         return scms;
     }
 
     public SCM convert(SCMDO scmdo) {
 
+        return (SCM) findFactory(SCMService.MODEL, scmdo.getType()).create(scmdo.getId(), scmdo.getName(), scmdo.getConfigure());
 
-        if("gitlab".equals(scmdo.getType())){
-            return  new GitlabSCM(scmdo.getId(), scmdo.getName(), scmdo.getConfigure());
-        }
-        return null;
 
     }
 }

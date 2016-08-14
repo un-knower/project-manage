@@ -15,7 +15,7 @@ import java.util.List;
  */
 @Service("scmService")
 public class SCMService extends DomainFactoryRigistry {
-    private static final String MODEL="scm";
+    public static final String MODEL="scm";
 
     @Resource
     SCMDao scmDao;
@@ -42,7 +42,7 @@ public class SCMService extends DomainFactoryRigistry {
         scmDao.update(scm);
     }
 
-    public SCM getSCM(long id) {
+    public SCM getSCM(Long id) {
         return scmDao.getSCM(id);
         //    return new GitlabSCM(null,"gitlab","2iAZn7fTUjKV9xsiS4KR","http://gitlab.qima-inc.com/");
     }

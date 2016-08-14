@@ -1,0 +1,123 @@
+[
+  {
+    "key": "org.tsxuehu.pm.service.shell.ShellService.getAllShellType",
+    "version": "1.0.0",
+    "className": "org.tsxuehu.pm.service.shell.ShellService",
+    "method": "getAllShellType",
+    "serviceParams": [
+    ]
+  },
+  {
+    "key": "org.tsxuehu.pm.service.shell.ShellService.getShell",
+    "version": "1.0.0",
+    "className": "org.tsxuehu.pm.service.shell.ShellService",
+    "method": "getShell",
+    "serviceParams": [
+      {
+        "order":0,
+        "name":"id",
+        "type":"java.lang.Long",
+        "mapAPiParamName":"id"
+      }
+    ]
+  },
+  {
+    "key": "org.tsxuehu.pm.service.shell.ShellService.createShell",
+    "version": "1.0.0",
+    "className": "org.tsxuehu.pm.service.shell.ShellService",
+    "method": "createShell",
+    "serviceParams": [
+      {
+        "order":0,
+        "name":"name",
+        "type":"java.lang.String",
+        "mapAPiParamName":"name"
+      },
+      {
+        "order":1,
+        "name":"description",
+        "type":"java.lang.String",
+        "mapAPiParamName":"description"
+      },
+      {
+        "order":2,
+        "name":"type",
+        "type":"java.lang.String",
+        "mapAPiParamName":"type"
+      },
+      {
+        "order":3,
+        "name":"content",
+        "type":"java.lang.String",
+        "mapAPiParamName":"content"
+      }
+    ]
+  },
+  {
+    "key": "org.tsxuehu.pm.service.shell.ShellService.update",
+    "version": "1.0.0",
+    "className": "org.tsxuehu.pm.service.shell.ShellService",
+    "method": "update",
+    "serviceParams": [
+      {
+        "order":0,
+        "name":"id",
+        "type":"java.lang.Long",
+        "mapAPiParamName":"id"
+      },
+      {
+        "order":1,
+        "name":"name",
+        "type":"java.lang.String",
+        "mapAPiParamName":"name"
+      },
+      {
+        "order":2,
+        "name":"description",
+        "type":"java.lang.String",
+        "mapAPiParamName":"description"
+      },
+      {
+        "order":3,
+        "name":"type",
+        "type":"java.lang.String",
+        "mapAPiParamName":"type"
+      },
+      {
+        "order":4,
+        "name":"content",
+        "type":"java.lang.String",
+        "mapAPiParamName":"content"
+      }
+    ]
+  },
+  {
+    "key": "org.tsxuehu.pm.service.shell.ShellService.getAllShell",
+    "version": "1.0.0",
+    "className": "org.tsxuehu.pm.service.shell.ShellService",
+    "method": "getAllShell",
+    "serviceParams": [
+    ]
+  },
+  {
+    "key": "org.tsxuehu.pm.service.shell.ShellService.queryShell",
+    "version": "1.0.0",
+    "className": "org.tsxuehu.pm.service.shell.ShellService",
+    "method": "queryShell",
+    "serviceParams": [
+      {
+        "order":0,
+        "name":"shellType",
+        "type":"java.lang.String",
+        "mapAPiParamName":"shellType"
+      },
+      {
+        "order":1,
+        "name":"name",
+        "type":"java.lang.String",
+        "mapAPiParamName":"name"
+      }
+    ]
+  }
+
+]

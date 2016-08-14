@@ -25,7 +25,7 @@ public class WebController {
     @Resource
     ApiRegistry apiService;
 
-    @RequestMapping(value = "/api/{apikey}/{version}")
+    @RequestMapping(value = "/api/{apikey}/{version}/call")
     @ResponseBody
     public String api(@PathVariable String apikey, @PathVariable String version, HttpServletRequest request, HttpSession session) {
 

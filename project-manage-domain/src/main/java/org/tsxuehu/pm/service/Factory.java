@@ -8,4 +8,7 @@ import org.tsxuehu.pm.domain.scm.SCM;
  */
 public interface Factory {
     <T> T create(JSONObject jsonObject);
+
+    SCM create(Long id, String name, String configure);
+
 }

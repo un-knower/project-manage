@@ -48,21 +48,21 @@ public class ApiRegistry implements ApplicationContextAware {
     public void init() throws URISyntaxException, FileNotFoundException {
        URL url = ApiRegistry.class.getResource("/api");
         File file =new File(url.toURI());
-        String[] jsonFiles = file.list(new FilenameFilter() {
+        File[] jsonFiles = file.listFiles(new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {
                 return name.endsWith(".json");
             }
         });
 
-        for (String jsonFile : jsonFiles) {
+        for (File jsonFile : jsonFiles) {
             parseJSONFile(jsonFile);
         }
 
 
     }
 
-    private void parseJSONFile(String filename) throws FileNotFoundException {
+    private void parseJSONFile(File filename) throws FileNotFoundException {
         FileInputStream in = new FileInputStream(filename);
         InputStreamReader inReader = null;
         try {

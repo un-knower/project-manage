@@ -1,5 +1,7 @@
 package org.tsxuehu.pm.domain.scm;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonGetter;
 import lombok.Data;
 
 import java.io.IOException;
@@ -23,6 +25,7 @@ public class SCM {
         return null;
     }
 
+    @JSONField(serialize=false)
     public String getConfigure() {
         return "";
     }

@@ -75,6 +75,9 @@ public class ApiDefinition {
                 case "java.lang.Integer":
                     result[i]=Integer.parseInt(params.get(serviceParam.getMapAPiParamName()));
                     break;
+                case "java.lang.Long":
+                    result[i]=Long.parseLong(params.get(serviceParam.getMapAPiParamName()));
+                    break;
             }
         }
         return result;

@@ -7,7 +7,6 @@
     "serviceParams": [
     ]
   },
-
   {
     "key": "org.tsxuehu.pm.service.scm.SCMService.create",
     "version": "1.0.0",
@@ -19,6 +18,20 @@
         "name":"jsonStr",
         "type":"java.lang.String",
         "mapAPiParamName":"configure"
+      }
+    ]
+  },
+  {
+    "key": "org.tsxuehu.pm.service.scm.SCMService.getSCM",
+    "version": "1.0.0",
+    "className": "org.tsxuehu.pm.service.scm.SCMService",
+    "method": "getSCM",
+    "serviceParams": [
+      {
+        "order":0,
+        "name":"id",
+        "type":"java.lang.Long",
+        "mapAPiParamName":"id"
       }
     ]
   }
