@@ -47,7 +47,4 @@ public class Application {
 
     String version;//应用格式的版本,不同版本的应用 使用的字段不样。构建周期不样
 
-    boolean deleted;//是否删除
-    Date createTime;
-    Date lastModifyTime;
 }
