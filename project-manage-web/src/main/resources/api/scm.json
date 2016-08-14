@@ -1,21 +1,24 @@
 [
   {
-    "key": "org.tsxuehu.pm.service.HelloService.sayHello",
+    "key": "org.tsxuehu.pm.service.scm.SCMService.getAllSCM",
     "version": "1.0.0",
-    "className": "org.tsxuehu.pm.service.HelloService",
-    "method": "sayHello",
+    "className": "org.tsxuehu.pm.service.scm.SCMService",
+    "method": "getAllSCM",
+    "serviceParams": [
+    ]
+  },
+
+  {
+    "key": "org.tsxuehu.pm.service.scm.SCMService.create",
+    "version": "1.0.0",
+    "className": "org.tsxuehu.pm.service.scm.SCMService",
+    "method": "create",
     "serviceParams": [
       {
         "order":0,
-        "name":"name",
+        "name":"jsonStr",
         "type":"java.lang.String",
-        "mapAPiParamName":"name"
-      } ,
-      {
-        "order":1,
-        "name":"time",
-        "type":"java.lang.Integer",
-        "mapAPiParamName":"time"
+        "mapAPiParamName":"configure"
       }
     ]
   }
