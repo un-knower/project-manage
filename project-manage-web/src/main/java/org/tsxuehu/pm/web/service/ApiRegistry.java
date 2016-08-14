@@ -13,6 +13,8 @@ import org.tsxuehu.pm.domain.api.ServiceParam;
 
 import javax.annotation.PostConstruct;
 import java.io.*;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,12 +25,9 @@ import java.util.Map;
  */
 @Service("apiRegistry")
 public class ApiRegistry implements ApplicationContextAware {
-    private  Map<String, ApiDefinition> apiRegistry;
+    private  Map<String, ApiDefinition> apiRegistry = new HashMap<>();;
     private ApplicationContext applicationContext;
 
-    private  List<Param> getApiParams(JSONArray jsonArray) {
-        return null;
-    }
 
     private  List<ServiceParam> getServiceParams(JSONArray jsonArray) {
 
@@ -46,8 +45,25 @@ public class ApiRegistry implements ApplicationContextAware {
         return serviceParams;
     }
     @PostConstruct
-    public void init() {
-        InputStream in = ApiRegistry.class.getResourceAsStream("/api.json");
+    public void init() throws URISyntaxException, FileNotFoundException {
+       URL url = ApiRegistry.class.getResource("/api");
+        File file =new File(url.toURI());
+        String[] jsonFiles = file.list(new FilenameFilter() {
+            @Override
+            public boolean accept(File dir, String name) {
+                return name.endsWith(".json");
+            }
+        });
+
+        for (String jsonFile : jsonFiles) {
+            parseJSONFile(jsonFile);
+        }
+
+
+    }
+
+    private void parseJSONFile(String filename) throws FileNotFoundException {
+        FileInputStream in = new FileInputStream(filename);
         InputStreamReader inReader = null;
         try {
             inReader = new InputStreamReader(in, "utf-8");
@@ -65,7 +81,7 @@ public class ApiRegistry implements ApplicationContextAware {
             e.printStackTrace();
         }
 
-        apiRegistry = new HashMap<>();
+
         JSONArray jsonArray = JSON.parseArray(stringBuilder.toString());
         for (Object obj : jsonArray) {
             JSONObject jsonObject = (JSONObject) obj;

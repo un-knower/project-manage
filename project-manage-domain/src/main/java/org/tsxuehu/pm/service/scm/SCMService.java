@@ -47,5 +47,4 @@ public class SCMService extends DomainFactoryRigistry {
         //    return new GitlabSCM(null,"gitlab","2iAZn7fTUjKV9xsiS4KR","http://gitlab.qima-inc.com/");
     }
 
-
 }
