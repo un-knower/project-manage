@@ -39,10 +39,13 @@ public class WebController {
         for (String paramsName : paramsNames) {
             params.put(paramsName, getValue(paramsName, request, session, maps));
         }
-        Object result = null;
+
+        Result result = new Result();
         try {
-            result = apiDefinition.call(params, apiService.getApplicationContext());
-            return JSON.toJSONString(result);
+            result.setData(apiDefinition.call(params, apiService.getApplicationContext()));
+
+            result.setCallSuccess(true);
+
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (NoSuchMethodException e) {
@@ -52,7 +55,7 @@ public class WebController {
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
-        return "error";
+        return JSON.toJSONString(result);
     }
 
     @RequestMapping(value = {"/*", "/index"}, method = RequestMethod.GET)
