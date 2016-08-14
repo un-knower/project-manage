@@ -33,7 +33,6 @@ public class ShellDaoImpl implements ShellDao {
     public void update(Shell shell) {
         ShellDO shellDO = convert(shell);
         shellDOMapper.updateByPrimaryKey(shellDO);
-
     }
 
     @Override

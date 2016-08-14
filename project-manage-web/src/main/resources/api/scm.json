@@ -15,7 +15,51 @@
     "serviceParams": [
       {
         "order":0,
-        "name":"jsonStr",
+        "name":"name",
+        "type":"java.lang.String",
+        "mapAPiParamName":"name"
+      },
+      {
+        "order":1,
+        "name":"type",
+        "type":"java.lang.String",
+        "mapAPiParamName":"type"
+      },
+      {
+        "order":2,
+        "name":"configure",
+        "type":"java.lang.String",
+        "mapAPiParamName":"configure"
+      }
+    ]
+  },
+  {
+    "key": "org.tsxuehu.pm.service.scm.SCMService.update",
+    "version": "1.0.0",
+    "className": "org.tsxuehu.pm.service.scm.SCMService",
+    "method": "update",
+    "serviceParams": [
+      {
+        "order":0,
+        "name":"id",
+        "type":"java.lang.Long",
+        "mapAPiParamName":"id"
+      },
+      {
+        "order":1,
+        "name":"name",
+        "type":"java.lang.String",
+        "mapAPiParamName":"name"
+      },
+      {
+        "order":2,
+        "name":"type",
+        "type":"java.lang.String",
+        "mapAPiParamName":"type"
+      },
+      {
+        "order":3,
+        "name":"configure",
         "type":"java.lang.String",
         "mapAPiParamName":"configure"
       }

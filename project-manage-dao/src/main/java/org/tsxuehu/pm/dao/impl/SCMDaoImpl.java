@@ -8,6 +8,7 @@ import org.tsxuehu.pm.dao.mapper.SCMDOMapper;
 import org.tsxuehu.pm.domain.scm.GitlabSCM;
 import org.tsxuehu.pm.domain.scm.SCM;
 import org.tsxuehu.pm.service.DomainFactoryRigistry;
+import org.tsxuehu.pm.service.scm.SCMFactory;
 import org.tsxuehu.pm.service.scm.SCMService;
 
 import javax.annotation.Resource;
@@ -70,7 +71,7 @@ public class SCMDaoImpl extends DomainFactoryRigistry implements SCMDao {
 
     public SCM convert(SCMDO scmdo) {
 
-        return (SCM) findFactory(SCMService.MODEL, scmdo.getType()).create(scmdo.getId(), scmdo.getName(), scmdo.getConfigure());
+        return ((SCMFactory) findFactory(SCMService.MODEL, scmdo.getType())).create(scmdo.getId(), scmdo.getName(), scmdo.getConfigure());
 
 
     }

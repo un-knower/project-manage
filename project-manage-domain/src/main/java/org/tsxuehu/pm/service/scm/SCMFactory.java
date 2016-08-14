@@ -8,5 +8,6 @@ import org.tsxuehu.pm.service.Factory;
  * Created by tsxuehu on 16/8/14.
  */
 public interface SCMFactory extends Factory {
-    SCM create(JSONObject jsonObject);
+
+    SCM create(Long id, String name, String configure);
 }

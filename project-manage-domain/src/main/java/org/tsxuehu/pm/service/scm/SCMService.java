@@ -28,17 +28,16 @@ public class SCMService extends DomainFactoryRigistry {
         scmDao.deleteSCM(id);
     }
 
-    public Long create(String jsonStr) {
-        JSONObject jsonObject = JSON.parseObject(jsonStr);
-        SCMFactory scmFactory = findFactory(MODEL,jsonObject.getString("type"));
-        SCM scm = scmFactory.create(jsonObject);
+    public Long create(String name,String type,String configure) {
+
+        SCMFactory scmFactory = findFactory(MODEL,type);
+        SCM scm = scmFactory.create(null,name,configure);
         return scmDao.create(scm);
     }
 
-    public void update(String jsonStr) {
-        JSONObject jsonObject = JSON.parseObject(jsonStr);
-        SCMFactory scmFactory = findFactory(MODEL,jsonObject.getString("type"));
-        SCM scm = scmFactory.create(jsonObject);
+    public void update(Long id,String name,String type,String configure) {
+        SCMFactory scmFactory = findFactory(MODEL,type);
+        SCM scm = scmFactory.create(id,name,configure);
         scmDao.update(scm);
     }
 

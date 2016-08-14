@@ -11,10 +11,6 @@ import org.tsxuehu.pm.service.Factory;
  */
 @Component("scm-gitlab")
 public class GitlabFactory implements SCMFactory {
-    @Override
-    public GitlabSCM create(JSONObject jsonObject) {
-        return GitlabSCM.create(jsonObject);
-    }
 
     @Override
     public GitlabSCM create(Long id, String name, String configure) {
