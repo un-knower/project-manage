@@ -16,8 +16,8 @@ public class Application {
     String name;//全局唯一
     String description;
 
-    long scmId;//git仓库地址
-    String projectId;//工程在gitlab上的id
+    Long scmId;//git仓库地址
+    String gitlabProjectId;//工程在gitlab上的id
 
     List<Server> dailyMachines;//日常可部署机器
     List<Server> preMachines;//预发可部署机器
