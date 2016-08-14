@@ -42,6 +42,9 @@ public class WebController {
 
         Result result = new Result();
         try {
+            /**
+             * 接口调用,可以监控接口的响应时间、失败次数、调用次数等数据 提供报警
+             */
             result.setData(apiDefinition.call(params, apiService.getApplicationContext()));
 
             result.setCallSuccess(true);
