@@ -1,5 +1,7 @@
 package org.tsxuehu.pm.domain.scm;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.gitlab.api.GitlabAPI;
 
 import java.io.IOException;
@@ -9,17 +11,21 @@ import java.util.Date;
 /**
  * Created by tsxuehu on 16/7/23.
  */
-public class GitSCM implements SCM {
+public class GitlabSCM extends SCM {
 
-    public GitSCM(Long id,String name,String privateToken, String host){
+    public GitlabSCM(Long id, String name, String privateToken, String host){
+        super(id,name,"gitlab");
         this.privateToken = privateToken;
         this.host = host;
-        this.id = id;
-        this.name = name;
+    }
+    public GitlabSCM(Long id, String name, String configure){
+        super(id,name,"gitlab");
+        JSONObject jsonObject= JSON.parseObject(configure);
+
+        this.privateToken = jsonObject.getString("privateToken");
+        this.host = jsonObject.getString("host");
     }
 
-    long id;
-    String name;
     String privateToken;
     String host;
 

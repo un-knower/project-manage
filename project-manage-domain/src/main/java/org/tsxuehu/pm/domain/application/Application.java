@@ -2,6 +2,7 @@ package org.tsxuehu.pm.domain.application;
 
 import org.tsxuehu.pm.domain.user.User;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -12,7 +13,7 @@ import java.util.List;
 public class Application {
 
     Long id;
-    String name;
+    String name;//全局唯一
     String description;
 
     long scmId;//git仓库地址
@@ -40,9 +41,13 @@ public class Application {
     /**
      * 执行构建脚本时,appParam会传递给脚本
      */
-    public String appParam;
+    String appParam;
 
-    public String createBranchExtraShowName;//创建分支时,描述信息显示的名字  如果不填此信息,则创建分支时不显示额外信息字段
+    String createBranchExtraShowName;//创建分支时,描述信息显示的名字  如果不填此信息,则创建分支时不显示额外信息字段
 
+    String version;//应用格式的版本,不同版本的应用 使用的字段不样。构建周期不样
 
+    boolean deleted;//是否删除
+    Date createTime;
+    Date lastModifyTime;
 }
