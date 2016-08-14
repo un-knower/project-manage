@@ -1,10 +1,13 @@
 package org.tsxuehu.pm.domain.scm;
 
+import lombok.Data;
+
 import java.io.IOException;
 
 /**
  * Created by tsxuehu on 16/8/12.
  */
+@Data
 public class SCM {
     public SCM(Long id, String name, String type) {
         this.id = id;
@@ -20,4 +23,7 @@ public class SCM {
         return null;
     }
 
+    public String getConfigure() {
+        return "";
+    }
 }

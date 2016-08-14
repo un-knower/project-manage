@@ -7,6 +7,7 @@ import org.tsxuehu.pm.dao.dbobject.SCMDOExample;
 import org.tsxuehu.pm.dao.mapper.SCMDOMapper;
 import org.tsxuehu.pm.domain.scm.GitlabSCM;
 import org.tsxuehu.pm.domain.scm.SCM;
+import org.tsxuehu.pm.service.DomainFactoryRigistry;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ import java.util.List;
  * Created by tsxuehu on 16/8/14.
  */
 @Service("scmDao")
-public class SCMDaoImpl implements SCMDao {
+public class SCMDaoImpl extends DomainFactoryRigistry implements SCMDao {
     @Resource
     SCMDOMapper scmdoMapper;
 
@@ -27,9 +28,35 @@ public class SCMDaoImpl implements SCMDao {
         return convert(scmdos);
     }
 
+
     @Override
     public void deleteSCM(long id) {
+        scmdoMapper.deleteByPrimaryKey(id);
+    }
 
+    @Override
+    public SCM getSCM(long id) {
+        return convert(scmdoMapper.selectByPrimaryKey(id));
+    }
+
+    @Override
+    public Long create(SCM scm) {
+        SCMDO scmdo =new SCMDO();
+        scmdo.setName(scm.getName());
+        scmdo.setType(scm.getType());
+        scmdo.setConfigure(scm.getConfigure());
+        scmdoMapper.insert(scmdo);
+        return scmdo.getId();
+    }
+
+    @Override
+    public void update(SCM scm) {
+        SCMDO scmdo =new SCMDO();
+        scmdo.setId(scm.getId());
+        scmdo.setName(scm.getName());
+        scmdo.setType(scm.getType());
+        scmdo.setConfigure(scm.getConfigure());
+        scmdoMapper.updateByPrimaryKey(scmdo);
     }
 
     public List<SCM> convert(List<SCMDO> scmdos) {
@@ -41,8 +68,10 @@ public class SCMDaoImpl implements SCMDao {
     }
 
     public SCM convert(SCMDO scmdo) {
+
+
         if("gitlab".equals(scmdo.getType())){
-            return  new GitlabSCM(scmdo.getId(), scmdo.getName(), scmdo.getType());
+            return  new GitlabSCM(scmdo.getId(), scmdo.getName(), scmdo.getConfigure());
         }
         return null;
 

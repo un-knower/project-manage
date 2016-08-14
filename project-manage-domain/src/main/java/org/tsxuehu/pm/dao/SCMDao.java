@@ -11,4 +11,10 @@ public interface SCMDao {
      List<SCM> getAllSCM();
 
      void deleteSCM(long id);
+
+    SCM getSCM(long id);
+
+    Long create(SCM scm);
+
+    void update(SCM scm);
 }

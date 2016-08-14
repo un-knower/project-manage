@@ -11,15 +11,20 @@ import java.util.Date;
 /**
  * Created by tsxuehu on 16/7/23.
  */
-public class GitlabSCM extends SCM {
+public class GitlabSCM extends SCM  {
+    public static  final String TYPE = "gitlab";
+
+    public static GitlabSCM create(JSONObject jsonObject){
+        return new GitlabSCM(jsonObject.getLong("id"),jsonObject.getString("name"),jsonObject.getString("privateToken"),jsonObject.getString("host"));
+    }
 
     public GitlabSCM(Long id, String name, String privateToken, String host){
-        super(id,name,"gitlab");
+        super(id,name,GitlabSCM.TYPE);
         this.privateToken = privateToken;
         this.host = host;
     }
     public GitlabSCM(Long id, String name, String configure){
-        super(id,name,"gitlab");
+        super(id,name, GitlabSCM.TYPE);
         JSONObject jsonObject= JSON.parseObject(configure);
 
         this.privateToken = jsonObject.getString("privateToken");
@@ -38,5 +43,13 @@ public class GitlabSCM extends SCM {
         GitlabAPI gitlabAPI = GitlabAPI.connect(host, privateToken);
         gitlabAPI.createBranch(projectId, actualBranchName, fromBranch);
         return actualBranchName;
+    }
+
+    @Override
+    public String getConfigure() {
+        JSONObject jsonObject =new JSONObject();
+        jsonObject.put("privateToken",this.privateToken);
+        jsonObject.put("host",this.host);
+        return jsonObject.toJSONString();
     }
 }
