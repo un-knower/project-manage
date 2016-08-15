@@ -22,7 +22,7 @@ public class Group {
 
     String integrationBranch;//集成分支
 
-    List<BranchBuildStatus> branchBuildStatuses;
+    List<BranchBuildStatus> branchBuildStatuses;//需要的时候才会加载
 
     //构建状态
     String buildPhrase;
