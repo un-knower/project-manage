@@ -19,5 +19,12 @@ public class Group {
      */
     String machine;
 
-    List<Branch> branches;
+    List<BranchBuildStatus> branchBuildStatuses;
+
+    //构建状态
+    String buildPhrase;
+    int buidRate;
+    //推送状态
+    String pushPhrase;
+    String pushRate;
 }

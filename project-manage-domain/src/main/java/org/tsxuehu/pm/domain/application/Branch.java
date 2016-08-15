@@ -13,7 +13,7 @@ public class Branch {
     Long applicationId;
     Long projectId;
     String description;//可以修改
-    String extra;//可以修改
+    String extra;//附加信息
     String deployLocation;//分支单独部署的机器
     User creator;
 }

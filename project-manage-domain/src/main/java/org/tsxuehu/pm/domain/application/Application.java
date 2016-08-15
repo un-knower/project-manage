@@ -43,8 +43,4 @@ public class Application {
      */
     String appParam;
 
-    String createBranchExtraShowName;//创建分支时,描述信息显示的名字  如果不填此信息,则创建分支时不显示额外信息字段
-
-    String version;//应用格式的版本,不同版本的应用 使用的字段不样。构建周期不样
-
 }
