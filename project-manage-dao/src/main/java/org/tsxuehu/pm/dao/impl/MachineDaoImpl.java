@@ -62,7 +62,7 @@ public class MachineDaoImpl implements MachineDao {
         List<Machine> machines = new ArrayList<>(machineDOs.size());
         for (MachineDO machineDO : machineDOs) {
             machines.add(new Machine(machineDO.getId(), machineDO.getName(), machineDO.getLocation(), machineDO.getPort(),
-                    machineDO.getUsername(), machineDO.getPassword()));
+                    machineDO.getUsername(), null));
         }
         return machines;
     }
