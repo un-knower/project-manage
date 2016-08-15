@@ -12,5 +12,14 @@ public class Machine {
     String location;
     String username;
     String password;
-    String sshPort;
+    String port;
+
+    public Machine(Long id, String name, String location, String port, String username, String password) {
+        this.id = id;
+        this.name = name;
+        this.location = location;
+        this.port = port;
+        this.username = username;
+        this.password = password;
+    }
 }

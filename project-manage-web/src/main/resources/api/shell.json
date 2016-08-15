@@ -1,16 +1,16 @@
 [
   {
-    "key": "org.tsxuehu.pm.service.shell.ShellService.getAllShellType",
+    "key": "org.tsxuehu.pm.service.build.ShellService.getAllShellType",
     "version": "1.0.0",
-    "className": "org.tsxuehu.pm.service.shell.ShellService",
+    "className": "org.tsxuehu.pm.service.build.ShellService",
     "method": "getAllShellType",
     "serviceParams": [
     ]
   },
   {
-    "key": "org.tsxuehu.pm.service.shell.ShellService.getShell",
+    "key": "org.tsxuehu.pm.service.build.ShellService.getShell",
     "version": "1.0.0",
-    "className": "org.tsxuehu.pm.service.shell.ShellService",
+    "className": "org.tsxuehu.pm.service.build.ShellService",
     "method": "getShell",
     "serviceParams": [
       {
@@ -22,9 +22,9 @@
     ]
   },
   {
-    "key": "org.tsxuehu.pm.service.shell.ShellService.createShell",
+    "key": "org.tsxuehu.pm.service.build.ShellService.createShell",
     "version": "1.0.0",
-    "className": "org.tsxuehu.pm.service.shell.ShellService",
+    "className": "org.tsxuehu.pm.service.build.ShellService",
     "method": "createShell",
     "serviceParams": [
       {
@@ -54,9 +54,9 @@
     ]
   },
   {
-    "key": "org.tsxuehu.pm.service.shell.ShellService.update",
+    "key": "org.tsxuehu.pm.service.build.ShellService.update",
     "version": "1.0.0",
-    "className": "org.tsxuehu.pm.service.shell.ShellService",
+    "className": "org.tsxuehu.pm.service.build.ShellService",
     "method": "update",
     "serviceParams": [
       {
@@ -92,17 +92,17 @@
     ]
   },
   {
-    "key": "org.tsxuehu.pm.service.shell.ShellService.getAllShell",
+    "key": "org.tsxuehu.pm.service.build.ShellService.getAllShell",
     "version": "1.0.0",
-    "className": "org.tsxuehu.pm.service.shell.ShellService",
+    "className": "org.tsxuehu.pm.service.build.ShellService",
     "method": "getAllShell",
     "serviceParams": [
     ]
   },
   {
-    "key": "org.tsxuehu.pm.service.shell.ShellService.queryShell",
+    "key": "org.tsxuehu.pm.service.build.ShellService.queryShell",
     "version": "1.0.0",
-    "className": "org.tsxuehu.pm.service.shell.ShellService",
+    "className": "org.tsxuehu.pm.service.build.ShellService",
     "method": "queryShell",
     "serviceParams": [
       {

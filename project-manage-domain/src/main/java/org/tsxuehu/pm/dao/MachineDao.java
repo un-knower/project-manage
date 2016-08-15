@@ -12,7 +12,7 @@ public interface MachineDao {
 
     Machine get(Long id);
 
-    void update(Long id, String name, String location, String port, String username, String password);
+    void update(Machine machine);
 
-    Long create(String name, String location, String port, String username, String password);
+    Long create(Machine machine);
 }
