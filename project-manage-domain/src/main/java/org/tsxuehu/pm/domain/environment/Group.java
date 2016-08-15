@@ -19,6 +19,8 @@ public class Group {
      */
     String machine;
 
+    String integrationBranch;//集成分支
+
     List<BranchBuildStatus> branchBuildStatuses;
 
     //构建状态
