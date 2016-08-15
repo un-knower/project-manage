@@ -1,6 +1,7 @@
 package org.tsxuehu.pm.domain.environment;
 
 import org.tsxuehu.pm.domain.application.Branch;
+import org.tsxuehu.pm.domain.application.Server;
 
 import java.util.List;
 import java.util.Map;
@@ -17,7 +18,7 @@ public class Group {
     /**
      * 机器列表 , 作为参数传到推包脚本里
      */
-    String machine;
+    List<Server> servers;//要部署到的机器
 
     String integrationBranch;//集成分支
 
