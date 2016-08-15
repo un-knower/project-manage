@@ -2,12 +2,8 @@ package org.tsxuehu.pm.domain.application;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 import lombok.Data;
-import org.springframework.stereotype.Service;
-import org.tsxuehu.pm.domain.user.User;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,6 +18,8 @@ public class Server {
         return  JSON.parseArray(jsonStr,Server.class);
     }
     public static String toJSONString(List<Server> servers){
+        if(servers==null)
+            return null;
         return JSONArray.toJSONString(servers);
     }
 

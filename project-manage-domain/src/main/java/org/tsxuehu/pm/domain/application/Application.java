@@ -2,6 +2,7 @@ package org.tsxuehu.pm.domain.application;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 import org.tsxuehu.pm.domain.user.User;
 
@@ -83,5 +84,14 @@ public class Application {
         this.name=name;
         this.description=description;
         this.owner = owner;
+    }
+    @JSONField(serialize=false)
+    public String getReviewJSONString(){
+
+        JSONObject jsObject =new JSONObject();
+        jsObject.put("mustCodeReview",mustCodeReview);
+        jsObject.put("mustStaticScan",mustStaticScan);
+        jsObject.put("mustTest",mustTest);
+        return jsObject.toJSONString();
     }
 }

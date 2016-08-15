@@ -19,8 +19,10 @@ public class User {
         return JSON.parseArray(jsonStr, User.class);
     }
 
-    public static String toJSONString(List<User> servers) {
-        return JSONArray.toJSONString(servers);
+    public static String toJSONString(List<User> users) {
+        if(users==null)
+            return null;
+        return JSONArray.toJSONString(users);
     }
 
     public User() {
