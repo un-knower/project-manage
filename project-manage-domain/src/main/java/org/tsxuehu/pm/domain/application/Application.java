@@ -1,5 +1,8 @@
 package org.tsxuehu.pm.domain.application;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import lombok.Data;
 import org.tsxuehu.pm.domain.user.User;
 
 import java.util.Date;
@@ -9,8 +12,39 @@ import java.util.List;
  *
  * Created by tsxuehu on 16/7/22.
  */
-
+@Data
 public class Application {
+    public static Application create(Long id,String name,String description,Long scmId,String gitlabProjectId,
+                                     String dailyMachines,String preMachines,String formalMachines,
+                                     String publishers,Long mergeShellId,Long buildShellId,Long publishShellId,
+                                     String review,String appParam,String owner){
+        Application application=new Application();
+        application.setId(id);
+        application.setName(name);
+        application.setDescription(description);
+        application.setScmId(scmId);
+        application.setGitlabProjectId(gitlabProjectId);
+        //机器解析
+        application.setDailyMachines(Server.serverListFromJSONString(dailyMachines));
+        application.setPreMachines(Server.serverListFromJSONString(preMachines));
+        application.setFormalMachines(Server.serverListFromJSONString(formalMachines));
+
+        application.setPublishers(User.userListFromJSONString(publishers));
+
+        application.setMergeShellId(mergeShellId);
+        application.setBuildShellId(buildShellId);
+        application.setPublishShellId(publishShellId);
+        //review项解析
+        JSONObject jsObject = JSON.parseObject(review);
+        application.setMustCodeReview(jsObject.getBoolean("mustCodeReview"));
+        application.setMustStaticScan(jsObject.getBoolean("mustStaticScan"));
+        application.setMustTest(jsObject.getBoolean("mustTest"));
+
+        application.setAppParam(appParam);
+
+        application.setOwner(User.userFromJSONString(owner));
+        return application;
+    }
 
     Long id;
     String name;//全局唯一
@@ -43,4 +77,11 @@ public class Application {
      */
     String appParam;
 
+    public Application(){}
+
+    public Application(String name, String description, User owner) {
+        this.name=name;
+        this.description=description;
+        this.owner = owner;
+    }
 }

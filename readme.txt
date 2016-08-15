@@ -1,12 +1,10 @@
 后端开发
 
-1、application
+application
 
-2、project  branch
+project  branch
 
-3、environment
-
-4、机器
+environment
 
 
 前端开发

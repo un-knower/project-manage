@@ -14,10 +14,10 @@ public class UserService {
     private static List<User> users;
     static {
         users=new ArrayList<>();
-        users.add(new User("1","pianfan"));
-        users.add(new User("2","pangxie"));
-        users.add(new User("3","niunai"));
-        users.add(new User("4","jiagoushi"));
+        users.add(new User(1l,"pianfan"));
+        users.add(new User(2l,"pangxie"));
+        users.add(new User(3l,"niunai"));
+        users.add(new User(4l,"jiagoushi"));
     }
     public List<User> query(String nick){
         return users;

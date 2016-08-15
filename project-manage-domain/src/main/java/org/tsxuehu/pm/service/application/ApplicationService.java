@@ -1,16 +1,22 @@
 package org.tsxuehu.pm.service.application;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Service;
+import org.tsxuehu.pm.dao.ApplicationDao;
 import org.tsxuehu.pm.domain.application.Application;
+import org.tsxuehu.pm.domain.application.Server;
 import org.tsxuehu.pm.domain.user.User;
 
-import java.util.List;
+import javax.annotation.Resource;
 
 /**
  * Created by tsxuehu on 16/8/12.
  */
 @Service("applicationService")
 public class ApplicationService {
+    @Resource
+    ApplicationDao applicationDao;
     /**
      * 创建应用分为两步
      * 1、用户创建基础信息
@@ -19,33 +25,25 @@ public class ApplicationService {
      * @param
      * @param creatorName
      */
-    Long createApplication(String name, String description, String creatorId,String  creatorName){
-        return null;
+    Long createApplication(String name, String description,Long creatorId,String  creatorName){
+       return applicationDao.create(new Application(name,description,new User(creatorId,creatorName)));
     }
-    void updateApplication(){
-
+    void updateApplication(Long id,String description,Long scmId,String gitlabProjectId,
+                           String dailyMachines,String preMachines,String formalMachines,
+                           String publishers,Long mergeShellId,Long buildShellId,Long publishShellId,
+                           String review,String appParam){
+        applicationDao.update(Application.create(id,null,description,scmId,gitlabProjectId,dailyMachines,preMachines,
+                formalMachines,publishers,mergeShellId,buildShellId,publishShellId,review,appParam,null));
     }
-    /**
-     * 获取用户user创建的所有引用
-     *
-     * @param user
-     * @return
-     */
-    List<Application> getApplication(User user, int pageNo, int pageSize){
-        return null;
-    }
-
-
-
 
     /**
      * 获取一个应用详细信息
      *
-     * @param appName
+     * @param id
      * @return
      */
-    public Application getApplication(String appName){
-        return null;
+    public Application getApplication(Long id){
+        return applicationDao.get(id);
     }
 
 }
