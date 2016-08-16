@@ -2,6 +2,8 @@ package org.tsxuehu.pm.dao;
 
 import org.tsxuehu.pm.domain.application.Application;
 
+import java.util.List;
+
 /**
  * Created by tsxuehu on 16/8/14.
  */
@@ -11,4 +13,7 @@ public interface ApplicationDao {
     void update(Application application);
 
     Application get(Long id);
+
+    List<Application> getAllAplication();
+
 }

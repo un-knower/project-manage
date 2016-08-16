@@ -10,16 +10,15 @@ import java.util.Date;
 import java.util.List;
 
 /**
- *
  * Created by tsxuehu on 16/7/22.
  */
 @Data
 public class Application {
-    public static Application create(Long id,String name,String description,Long scmId,String gitlabProjectId,
-                                     String dailyMachines,String preMachines,String formalMachines,
-                                     String publishers,Long mergeShellId,Long buildShellId,Long publishShellId,
-                                     String review,String appParam,String owner){
-        Application application=new Application();
+    public static Application create(Long id, String name, String description, Long scmId, String gitlabProjectId,
+                                     String dailyMachines, String preMachines, String formalMachines,
+                                     String publishers, Long mergeShellId, Long buildShellId, Long publishShellId,
+                                     String review, String appParam, String owner) {
+        Application application = new Application();
         application.setId(id);
         application.setName(name);
         application.setDescription(description);
@@ -78,20 +77,28 @@ public class Application {
      */
     String appParam;
 
-    public Application(){}
-
-    public Application(String name, String description, User owner) {
-        this.name=name;
-        this.description=description;
-        this.owner = owner;
+    public Application() {
+        this.mustCodeReview = false;
+        this.mustTest = true;
+        this.mustStaticScan = false;
     }
-    @JSONField(serialize=false)
-    public String getReviewJSONString(){
 
-        JSONObject jsObject =new JSONObject();
-        jsObject.put("mustCodeReview",mustCodeReview);
-        jsObject.put("mustStaticScan",mustStaticScan);
-        jsObject.put("mustTest",mustTest);
+    public Application(Long id, String name, String description, User owner) {
+        this.name = name;
+        this.description = description;
+        this.owner = owner;
+        this.mustCodeReview = false;
+        this.mustTest = true;
+        this.mustStaticScan = false;
+    }
+
+    @JSONField(serialize = false)
+    public String getReviewJSONString() {
+
+        JSONObject jsObject = new JSONObject();
+        jsObject.put("mustCodeReview", mustCodeReview);
+        jsObject.put("mustStaticScan", mustStaticScan);
+        jsObject.put("mustTest", mustTest);
         return jsObject.toJSONString();
     }
 }

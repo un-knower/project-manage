@@ -9,6 +9,7 @@ import org.tsxuehu.pm.domain.application.Server;
 import org.tsxuehu.pm.domain.user.User;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by tsxuehu on 16/8/12.
@@ -17,23 +18,26 @@ import javax.annotation.Resource;
 public class ApplicationService {
     @Resource
     ApplicationDao applicationDao;
+
     /**
      * 创建应用分为两步
      * 1、用户创建基础信息
      * 2、运维更新scm、构建脚本信息
+     *
      * @param name
      * @param
      * @param creatorName
      */
-    Long createApplication(String name, String description,Long creatorId,String  creatorName){
-       return applicationDao.create(new Application(name,description,new User(creatorId,creatorName)));
+    Long createApplication(String name, String description, Long creatorId, String creatorName) {
+        return applicationDao.create(new Application(null, name, description, new User(creatorId, creatorName)));
     }
-    void updateApplication(Long id,String description,Long scmId,String gitlabProjectId,
-                           String dailyMachines,String preMachines,String formalMachines,
-                           String publishers,Long mergeShellId,Long buildShellId,Long publishShellId,
-                           String review,String appParam){
-        applicationDao.update(Application.create(id,null,description,scmId,gitlabProjectId,dailyMachines,preMachines,
-                formalMachines,publishers,mergeShellId,buildShellId,publishShellId,review,appParam,null));
+
+    void updateApplication(Long id, String description, Long scmId, String gitlabProjectId,
+                           String dailyMachines, String preMachines, String formalMachines,
+                           String publishers, Long mergeShellId, Long buildShellId, Long publishShellId,
+                           String review, String appParam) {
+        applicationDao.update(Application.create(id, null, description, scmId, gitlabProjectId, dailyMachines, preMachines,
+                formalMachines, publishers, mergeShellId, buildShellId, publishShellId, review, appParam, null));
     }
 
     /**
@@ -42,8 +46,12 @@ public class ApplicationService {
      * @param id
      * @return
      */
-    public Application getApplication(Long id){
+    public Application getApplication(Long id) {
         return applicationDao.get(id);
     }
 
+    public List<Application> getAllAplication() {
+        return applicationDao.getAllAplication();
+
+    }
 }
