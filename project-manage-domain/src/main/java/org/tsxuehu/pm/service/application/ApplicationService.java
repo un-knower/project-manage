@@ -34,10 +34,10 @@ public class ApplicationService {
 
     void updateApplication(Long id, String description, Long scmId, String gitlabProjectId,
                            String dailyMachines, String preMachines, String formalMachines,
-                           String publishers, Long mergeShellId, Long buildShellId, Long publishShellId,
+                           String publishers, Long mergeShellId, Long buildShellId, Long pushShellId,
                            String review, String appParam) {
         applicationDao.update(Application.create(id, null, description, scmId, gitlabProjectId, dailyMachines, preMachines,
-                formalMachines, publishers, mergeShellId, buildShellId, publishShellId, review, appParam, null));
+                formalMachines, publishers, mergeShellId, buildShellId, pushShellId, review, appParam, null));
     }
 
     /**
