@@ -74,7 +74,7 @@ public class ApplicationDaoImpl implements ApplicationDao {
         applicationDO.setReview(application.getReviewJSONString());
         applicationDO.setAppParam(application.getAppParam());
 
-        applicationDO.setOwner(application.getOwner().toJSONString());
+        applicationDO.setOwner(application.getOwner() == null ? null : application.getOwner().toJSONString());
 
         return applicationDO;
     }

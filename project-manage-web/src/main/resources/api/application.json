@@ -29,9 +29,9 @@
     "serviceParams": [
       {
         "order":0,
-        "name":"name",
-        "type":"java.lang.String",
-        "mapAPiParamName":"name"
+        "name":"id",
+        "type":"java.lang.Long",
+        "mapAPiParamName":"id"
       },
       {
         "order":1,

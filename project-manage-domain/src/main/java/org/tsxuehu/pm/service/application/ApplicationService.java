@@ -28,11 +28,11 @@ public class ApplicationService {
      * @param
      * @param creatorName
      */
-    Long createApplication(String name, String description, Long creatorId, String creatorName) {
+    public Long createApplication(String name, String description, Long creatorId, String creatorName) {
         return applicationDao.create(new Application(null, name, description, new User(creatorId, creatorName)));
     }
 
-    void updateApplication(Long id, String description, Long scmId, String gitlabProjectId,
+    public void updateApplication(Long id, String description, Long scmId, String gitlabProjectId,
                            String dailyMachines, String preMachines, String formalMachines,
                            String publishers, Long mergeShellId, Long buildShellId, Long pushShellId,
                            String review, String appParam) {
