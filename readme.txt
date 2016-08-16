@@ -1,7 +1,5 @@
 后端开发
 
-application
-
 project  branch
 
 environment
