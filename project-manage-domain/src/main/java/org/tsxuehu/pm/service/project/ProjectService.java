@@ -1,5 +1,6 @@
 package org.tsxuehu.pm.service.project;
 
+import org.tsxuehu.pm.domain.application.Branch;
 import org.tsxuehu.pm.domain.project.Project;
 
 import java.util.List;
@@ -20,6 +21,11 @@ public class ProjectService {
         return null;
     }
 
+    /**
+     * 获取项目详情,也会获得项目的所有分支
+     * @param id
+     * @return
+     */
     public Project getProject(Long id){
         return null;
     }
@@ -31,4 +37,5 @@ public class ProjectService {
     public void deleteBranch(String branchId){
 
     }
+
 }
