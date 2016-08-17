@@ -3,8 +3,11 @@ package org.tsxuehu.pm.domain.scm;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import lombok.Data;
+import org.tsxuehu.pm.domain.application.Branch;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by tsxuehu on 16/8/12.
@@ -25,6 +28,16 @@ public class SCM {
         return null;
     }
 
+    /**
+     * 获取分支最新的提交commit
+     * @param projectSCMId
+     * @param branchName
+     * @return
+     */
+    @JSONField(serialize=false)
+    public String getBranchNewestPoint(String projectSCMId,String branchName){
+        return null;
+    }
     @JSONField(serialize=false)
     public String getConfigure() {
         return "";

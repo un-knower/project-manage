@@ -22,6 +22,9 @@ public class Group {
 
     String integrationBranch;//集成分支
 
+    /**
+     * 分支合并脚本合并分支时,会返回各个被合并分支的commit,然后保存到数据库里
+     */
     List<BranchBuildStatus> branchBuildStatuses;//需要的时候才会加载
 
     //构建状态

@@ -5,30 +5,34 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 import org.gitlab.api.GitlabAPI;
+import org.tsxuehu.pm.domain.application.Branch;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by tsxuehu on 16/7/23.
  */
 @Data
-public class GitlabSCM extends SCM  {
-    public static  final String TYPE = "gitlab";
+public class GitlabSCM extends SCM {
+    public static final String TYPE = "gitlab";
 
-    public static GitlabSCM create(JSONObject jsonObject){
-        return new GitlabSCM(jsonObject.getLong("id"),jsonObject.getString("name"),jsonObject.getString("privateToken"),jsonObject.getString("host"));
+    public static GitlabSCM create(JSONObject jsonObject) {
+        return new GitlabSCM(jsonObject.getLong("id"), jsonObject.getString("name"), jsonObject.getString("privateToken"), jsonObject.getString("host"));
     }
 
-    public GitlabSCM(Long id, String name, String privateToken, String host){
-        super(id,name,GitlabSCM.TYPE);
+    public GitlabSCM(Long id, String name, String privateToken, String host) {
+        super(id, name, GitlabSCM.TYPE);
         this.privateToken = privateToken;
         this.host = host;
     }
-    public GitlabSCM(Long id, String name, String configure){
-        super(id,name, GitlabSCM.TYPE);
-        JSONObject jsonObject= JSON.parseObject(configure);
+
+    public GitlabSCM(Long id, String name, String configure) {
+        super(id, name, GitlabSCM.TYPE);
+        JSONObject jsonObject = JSON.parseObject(configure);
 
         this.privateToken = jsonObject.getString("privateToken");
         this.host = jsonObject.getString("host");
@@ -48,12 +52,19 @@ public class GitlabSCM extends SCM  {
         return actualBranchName;
     }
 
+
+
     @Override
-    @JSONField(serialize=false)
+    public String getBranchNewestPoint(String projectSCMId, String branchName) {
+        return super.getBranchNewestPoint(projectSCMId, branchName);
+    }
+
+    @Override
+    @JSONField(serialize = false)
     public String getConfigure() {
-        JSONObject jsonObject =new JSONObject();
-        jsonObject.put("privateToken",this.privateToken);
-        jsonObject.put("host",this.host);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("privateToken", this.privateToken);
+        jsonObject.put("host", this.host);
         return jsonObject.toJSONString();
     }
 }
