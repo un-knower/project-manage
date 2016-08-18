@@ -13,8 +13,8 @@ public class Branch {
     Long applicationId;
     Long projectId;
     String description;//可以修改
-    String extra;//附加信息
-    String deployLocation;//分支单独部署的机器
+    String extra;//附加信息,创给打包脚本
+    Server deployServer;//分支单独部署的机器
     String checkoutPoint;//拉分支时的commit
     User creator;
 }
