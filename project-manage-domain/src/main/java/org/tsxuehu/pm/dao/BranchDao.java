@@ -10,8 +10,10 @@ import java.util.List;
 public interface BranchDao {
     Long create(Branch branch);
 
-    void delete(String branchId);
+    void delete(Long branchId);
 
 
     List<Branch> getProjectRelateBranch(Long id);
+
+    Branch getBranch(Long branchId);
 }

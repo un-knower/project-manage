@@ -89,8 +89,11 @@ public class ProjectService {
         return branch;
     }
 
-    public void deleteBranch(String branchId) {
+    public void deleteBranch(Long branchId) {
         branchDao.delete(branchId);
     }
 
+    public Branch getBranch(Long branchId){
+        return branchDao.getBranch(branchId);
+    }
 }

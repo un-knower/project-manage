@@ -470,62 +470,52 @@ public class BranchDOExample {
             return (Criteria) this;
         }
 
-        public Criteria andApplicationidEqualTo(String value) {
+        public Criteria andApplicationidEqualTo(Long value) {
             addCriterion("applicationId =", value, "applicationid");
             return (Criteria) this;
         }
 
-        public Criteria andApplicationidNotEqualTo(String value) {
+        public Criteria andApplicationidNotEqualTo(Long value) {
             addCriterion("applicationId <>", value, "applicationid");
             return (Criteria) this;
         }
 
-        public Criteria andApplicationidGreaterThan(String value) {
+        public Criteria andApplicationidGreaterThan(Long value) {
             addCriterion("applicationId >", value, "applicationid");
             return (Criteria) this;
         }
 
-        public Criteria andApplicationidGreaterThanOrEqualTo(String value) {
+        public Criteria andApplicationidGreaterThanOrEqualTo(Long value) {
             addCriterion("applicationId >=", value, "applicationid");
             return (Criteria) this;
         }
 
-        public Criteria andApplicationidLessThan(String value) {
+        public Criteria andApplicationidLessThan(Long value) {
             addCriterion("applicationId <", value, "applicationid");
             return (Criteria) this;
         }
 
-        public Criteria andApplicationidLessThanOrEqualTo(String value) {
+        public Criteria andApplicationidLessThanOrEqualTo(Long value) {
             addCriterion("applicationId <=", value, "applicationid");
             return (Criteria) this;
         }
 
-        public Criteria andApplicationidLike(String value) {
-            addCriterion("applicationId like", value, "applicationid");
-            return (Criteria) this;
-        }
-
-        public Criteria andApplicationidNotLike(String value) {
-            addCriterion("applicationId not like", value, "applicationid");
-            return (Criteria) this;
-        }
-
-        public Criteria andApplicationidIn(List<String> values) {
+        public Criteria andApplicationidIn(List<Long> values) {
             addCriterion("applicationId in", values, "applicationid");
             return (Criteria) this;
         }
 
-        public Criteria andApplicationidNotIn(List<String> values) {
+        public Criteria andApplicationidNotIn(List<Long> values) {
             addCriterion("applicationId not in", values, "applicationid");
             return (Criteria) this;
         }
 
-        public Criteria andApplicationidBetween(String value1, String value2) {
+        public Criteria andApplicationidBetween(Long value1, Long value2) {
             addCriterion("applicationId between", value1, value2, "applicationid");
             return (Criteria) this;
         }
 
-        public Criteria andApplicationidNotBetween(String value1, String value2) {
+        public Criteria andApplicationidNotBetween(Long value1, Long value2) {
             addCriterion("applicationId not between", value1, value2, "applicationid");
             return (Criteria) this;
         }

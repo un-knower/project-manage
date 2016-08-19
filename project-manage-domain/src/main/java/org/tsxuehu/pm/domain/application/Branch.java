@@ -21,9 +21,11 @@ public class Branch {
     String name;//人度的名字,说明分支干什么用的
     String scmBranchId;//gitlab上的分支名
     String repositoryLocation;//仓库地址
+    String description;//可以修改
+
+
     Long applicationId;
     Long projectId;
-    String description;//可以修改
     String extra;//附加信息,创给打包脚本
     Server deployServer;//分支单独部署的机器
     String checkoutPoint;//拉分支时的commit
