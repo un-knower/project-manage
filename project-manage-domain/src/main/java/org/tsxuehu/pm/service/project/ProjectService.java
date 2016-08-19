@@ -72,6 +72,7 @@ public class ProjectService {
         SCM scm = scmService.getSCM(application.getScmId());
         //通过scm创建分支
         String actualBranchName = scm.createNewBranch(application.getGitlabProjectId(), scmBranchName, fromScmBranch);
+
         //将分支写入数据库
         Branch branch = new Branch(null, name, scmBranchName, description,
                 scm.getRepositoryLocation(application.getGitlabProjectId()));
