@@ -42,21 +42,25 @@ public class GitlabSCM extends SCM {
     String host;
 
     @Override
-    public String createNewBranch(String projectId, String newBranchName, String fromBranch) throws IOException {
+    public String createNewBranch(String scmProjectId, String newBranchName, String fromBranch) throws IOException {
         long now = System.currentTimeMillis();
         SimpleDateFormat dateFormater = new SimpleDateFormat("yyyy_MM_dd_HHmmss_SSS");
         Date date = new Date();
         String actualBranchName = newBranchName + "_" + dateFormater.format(date);
         GitlabAPI gitlabAPI = GitlabAPI.connect(host, privateToken);
-        gitlabAPI.createBranch(projectId, actualBranchName, fromBranch);
+        gitlabAPI.createBranch(scmProjectId, actualBranchName, fromBranch);
         return actualBranchName;
     }
-
 
 
     @Override
     public String getBranchNewestPoint(String projectSCMId, String branchName) {
         return super.getBranchNewestPoint(projectSCMId, branchName);
+    }
+
+    @Override
+    public String getRepositoryLocation(String gitlabProjectId) {
+        return "git@" + host + ":" + gitlabProjectId + ".git";
     }
 
     @Override

@@ -45,7 +45,7 @@ public class Project {
     /**
      * 开发分支列表
      */
-    Map<Application, List<Branch>> branches;
+     List<Branch> branches;
 
     /**
      * 创建分支

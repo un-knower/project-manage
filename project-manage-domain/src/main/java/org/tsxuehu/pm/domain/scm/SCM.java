@@ -24,7 +24,7 @@ public class SCM {
     String name;
     String type;
 
-    public String createNewBranch(String projectId, String newBranchName, String fromBranch) throws IOException {
+    public String createNewBranch(String scmProjectId, String newBranchName, String fromBranch) throws IOException {
         return null;
     }
 
@@ -41,5 +41,9 @@ public class SCM {
     @JSONField(serialize=false)
     public String getConfigure() {
         return "";
+    }
+
+    public String getRepositoryLocation(String gitlabProjectId) {
+        return null;
     }
 }
