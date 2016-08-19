@@ -84,7 +84,7 @@ public class ProjectService {
         branch.setCheckoutPoint(checkpoint);
         branch.setDeployServer(Server.serverFromJSONString(deployServer));
         branch.setCreator(new User(creatorId, creatorName));
-        Long branchId = branchDao.save(branch);
+        Long branchId = branchDao.create(branch);
         branch.setId(branchId);
         return branch;
     }

@@ -8,7 +8,7 @@ import java.util.List;
  * Created by tsxuehu on 16/8/14.
  */
 public interface BranchDao {
-    Long save(Branch branch);
+    Long create(Branch branch);
 
     void delete(String branchId);
 
