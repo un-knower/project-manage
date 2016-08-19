@@ -35,7 +35,7 @@ public class SCM {
      * @return
      */
     @JSONField(serialize=false)
-    public String getBranchNewestPoint(String projectSCMId,String branchName){
+    public String getBranchNewestPoint(String projectSCMId,String branchName) throws IOException {
         return null;
     }
     @JSONField(serialize=false)

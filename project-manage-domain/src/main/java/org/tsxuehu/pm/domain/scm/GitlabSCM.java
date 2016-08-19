@@ -5,6 +5,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 import org.gitlab.api.GitlabAPI;
+import org.gitlab.api.Pagination;
+import org.gitlab.api.models.GitlabCommit;
 import org.tsxuehu.pm.domain.application.Branch;
 
 import java.io.IOException;
@@ -43,7 +45,7 @@ public class GitlabSCM extends SCM {
 
     @Override
     public String createNewBranch(String scmProjectId, String newBranchName, String fromBranch) throws IOException {
-        long now = System.currentTimeMillis();
+
         SimpleDateFormat dateFormater = new SimpleDateFormat("yyyy_MM_dd_HHmmss_SSS");
         Date date = new Date();
         String actualBranchName = newBranchName + "_" + dateFormater.format(date);
@@ -54,8 +56,14 @@ public class GitlabSCM extends SCM {
 
 
     @Override
-    public String getBranchNewestPoint(String projectSCMId, String branchName) {
-        return super.getBranchNewestPoint(projectSCMId, branchName);
+    public String getBranchNewestPoint(String projectSCMId, String branchName) throws IOException {
+        GitlabAPI gitlabAPI = GitlabAPI.connect(host, privateToken);
+        Pagination pagination = new Pagination();
+        pagination.setPage(1);
+        pagination.setPerPage(5);
+        List<GitlabCommit> result = gitlabAPI.getLastCommits(projectSCMId, branchName);
+
+        return result.get(0).getId();
     }
 
     @Override

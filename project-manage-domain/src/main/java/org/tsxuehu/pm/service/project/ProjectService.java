@@ -73,12 +73,15 @@ public class ProjectService {
         //通过scm创建分支
         String actualBranchName = scm.createNewBranch(application.getGitlabProjectId(), scmBranchName, fromScmBranch);
 
+        //获取拉分支时的commit
+        String checkpoint = scm.getBranchNewestPoint(application.getGitlabProjectId(), actualBranchName);
         //将分支写入数据库
         Branch branch = new Branch(null, name, scmBranchName, description,
                 scm.getRepositoryLocation(application.getGitlabProjectId()));
         branch.setApplicationId(applicationId);
         branch.setProjectId(projectId);
         branch.setExtra(extra);
+        branch.setCheckoutPoint(checkpoint);
         branch.setDeployServer(Server.serverFromJSONString(deployServer));
         branch.setCreator(new User(creatorId, creatorName));
         Long branchId = branchDao.save(branch);
