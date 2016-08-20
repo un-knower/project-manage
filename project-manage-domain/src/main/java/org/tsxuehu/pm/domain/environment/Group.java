@@ -11,6 +11,11 @@ import java.util.Map;
  */
 public class Group {
 
+    public static final String DAILY = "daily";
+    public static final String PRE = "pre";
+    public static final String FORMAL = "formal";
+
+
     Long id;
     String name;
     String description;
@@ -22,25 +27,17 @@ public class Group {
     String integrationBranch;//集成分支
 
     Long projectId;//项目环境中的group 会包含projectid
+    Long branchId;//分支环境中的group 包含branchId
     Long applicationId;
 
     /**
-     *   这个配置会作为参数 传递到构建脚本里
-     *   构建脚本可以将键值对生成配置文件放到应用程序包中
-     *   应用程序运行时,可以从配置文件里读到配置信息
+     * 这个配置会作为参数 传递到构建脚本里
+     * 构建脚本可以将键值对生成配置文件放到应用程序包中
+     * 应用程序运行时,可以从配置文件里读到配置信息
      */
-    Map<String,String> configuration;
+    Map<String, String> configuration;
 
-    /**
-     * 1:分支环境
-     * 2:项目环境
-     * 3:日常黄精
-     * 4:预发环境
-     * 5:正式环境
-     */
-
-
-
+    String type;//日常(和线上不同库)、预发(和线上同库)、正式(线上环境)。三种类型
 
 
     /**
