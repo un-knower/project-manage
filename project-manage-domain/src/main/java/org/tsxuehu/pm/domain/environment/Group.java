@@ -25,6 +25,7 @@ public class Group {
     List<Server> servers;//要部署到的机器
 
     String integrationBranch;//集成分支
+    String repositoryLocation;
 
     Long projectId;//项目环境中的group 会包含projectid
     Long branchId;//分支环境中的group 包含branchId
