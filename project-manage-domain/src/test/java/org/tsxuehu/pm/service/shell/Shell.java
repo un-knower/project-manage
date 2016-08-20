@@ -87,7 +87,7 @@ public class Shell {
       */
 
       /*
-      // Set environment variable "LANG" as "ja_JP.eucJP".
+      // Set group variable "LANG" as "ja_JP.eucJP".
       ((ChannelShell)channel).setEnv("LANG", "ja_JP.eucJP");
       */
 

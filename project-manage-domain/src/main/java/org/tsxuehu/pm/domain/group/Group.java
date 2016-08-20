@@ -1,4 +1,4 @@
-package org.tsxuehu.pm.domain.environment;
+package org.tsxuehu.pm.domain.group;
 
 import org.tsxuehu.pm.domain.application.Server;
 
