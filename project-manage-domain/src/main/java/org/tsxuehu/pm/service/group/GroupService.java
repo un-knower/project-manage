@@ -68,6 +68,7 @@ public class GroupService {
         //检查集成分支,没有则创建
 
         //通过后台线程去执行构建
+
     }
 
     /**
