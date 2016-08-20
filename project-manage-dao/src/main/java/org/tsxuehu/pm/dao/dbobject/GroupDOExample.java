@@ -1179,6 +1179,66 @@ public class GroupDOExample {
             addCriterion("repositoryLocation not between", value1, value2, "repositorylocation");
             return (Criteria) this;
         }
+
+        public Criteria andNeedreintegrationIsNull() {
+            addCriterion("needReintegration is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNeedreintegrationIsNotNull() {
+            addCriterion("needReintegration is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNeedreintegrationEqualTo(Byte value) {
+            addCriterion("needReintegration =", value, "needreintegration");
+            return (Criteria) this;
+        }
+
+        public Criteria andNeedreintegrationNotEqualTo(Byte value) {
+            addCriterion("needReintegration <>", value, "needreintegration");
+            return (Criteria) this;
+        }
+
+        public Criteria andNeedreintegrationGreaterThan(Byte value) {
+            addCriterion("needReintegration >", value, "needreintegration");
+            return (Criteria) this;
+        }
+
+        public Criteria andNeedreintegrationGreaterThanOrEqualTo(Byte value) {
+            addCriterion("needReintegration >=", value, "needreintegration");
+            return (Criteria) this;
+        }
+
+        public Criteria andNeedreintegrationLessThan(Byte value) {
+            addCriterion("needReintegration <", value, "needreintegration");
+            return (Criteria) this;
+        }
+
+        public Criteria andNeedreintegrationLessThanOrEqualTo(Byte value) {
+            addCriterion("needReintegration <=", value, "needreintegration");
+            return (Criteria) this;
+        }
+
+        public Criteria andNeedreintegrationIn(List<Byte> values) {
+            addCriterion("needReintegration in", values, "needreintegration");
+            return (Criteria) this;
+        }
+
+        public Criteria andNeedreintegrationNotIn(List<Byte> values) {
+            addCriterion("needReintegration not in", values, "needreintegration");
+            return (Criteria) this;
+        }
+
+        public Criteria andNeedreintegrationBetween(Byte value1, Byte value2) {
+            addCriterion("needReintegration between", value1, value2, "needreintegration");
+            return (Criteria) this;
+        }
+
+        public Criteria andNeedreintegrationNotBetween(Byte value1, Byte value2) {
+            addCriterion("needReintegration not between", value1, value2, "needreintegration");
+            return (Criteria) this;
+        }
     }
 
     /**

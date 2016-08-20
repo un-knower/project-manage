@@ -39,7 +39,7 @@ public class BranchDaoImpl implements BranchDao {
 
     @Override
     public List<Branch> getProjectRelateBranch(Long id) {
-        BranchDOExample example =new BranchDOExample();
+        BranchDOExample example = new BranchDOExample();
         example.or().andProjectidEqualTo(id);
         return convert(branchDOMapper.selectByExample(example));
     }
@@ -47,6 +47,13 @@ public class BranchDaoImpl implements BranchDao {
     @Override
     public Branch getBranch(Long branchId) {
         return convert(branchDOMapper.selectByPrimaryKey(branchId));
+    }
+
+    @Override
+    public List<Branch> getBranchList(List<Long> branchIds) {
+        BranchDOExample example = new BranchDOExample();
+        example.or().andIdIn(branchIds);
+        return convert(branchDOMapper.selectByExample(example));
     }
 
     private BranchDO convert(Branch branch) {

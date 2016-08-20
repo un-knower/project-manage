@@ -90,7 +90,7 @@ public class GroupService {
     public void removeBranch(Long groupId, Long branchId) {
         //删除分支需要将集成分支删除
         Group group = groupDao.getGroup(groupId);
-        group.setIntegrationBranch(null);
+        group.setNeedReintegration(true);
         groupDao.update(group);
         groupBranchRelationDao.remove(groupId, branchId);
     }
