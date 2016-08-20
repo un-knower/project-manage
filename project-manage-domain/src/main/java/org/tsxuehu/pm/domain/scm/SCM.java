@@ -43,6 +43,7 @@ public class SCM {
         return "";
     }
 
+    @JSONField(serialize=false)
     public String getRepositoryLocation(String gitlabProjectId) {
         return null;
     }

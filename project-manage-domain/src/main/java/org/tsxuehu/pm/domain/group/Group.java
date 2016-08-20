@@ -1,5 +1,7 @@
 package org.tsxuehu.pm.domain.group;
 
+import lombok.Data;
+import org.tsxuehu.pm.domain.application.Branch;
 import org.tsxuehu.pm.domain.application.Server;
 
 import java.util.List;
@@ -9,6 +11,7 @@ import java.util.Map;
  * 对付庞大应用专用的一个概念
  * Created by tsxuehu on 16/8/12.
  */
+@Data
 public class Group {
 
     public static final String DAILY = "daily";
@@ -44,15 +47,30 @@ public class Group {
     /**
      * 分支合并脚本合并分支时,会返回各个被合并分支的commit,然后保存到数据库里
      */
-    List<GroupBranchRelation> groupBranchBuildStatuses;//需要的时候才会加载
+    List<Branch> relatedBranches;//需要的时候才会加载
 
     /**
      * 进度只是
      */
     //构建状态 正在做什么事,已经完成的比例
     String buildPhrase;
-    int buidRate;
+    Integer buidRate;
     //推送状态
     String pushPhrase;
-    int pushRate;
+    Integer pushRate;
+
+    public Group(Long id, String type, String name, String description, Long applicationId, Long projectId, Long branchId) {
+        this.id = id;
+        this.type = type;
+        this.name = name;
+        this.description = description;
+        this.applicationId = applicationId;
+        this.projectId = projectId;
+        this.branchId = branchId;
+
+    }
+
+    public Group(Long id) {
+        this.id = id;
+    }
 }

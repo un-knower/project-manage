@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 import org.tsxuehu.pm.dao.ApplicationDao;
 import org.tsxuehu.pm.domain.application.Application;
 import org.tsxuehu.pm.domain.application.Server;
+import org.tsxuehu.pm.domain.scm.SCM;
 import org.tsxuehu.pm.domain.user.User;
+import org.tsxuehu.pm.service.scm.SCMService;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -18,7 +20,8 @@ import java.util.List;
 public class ApplicationService {
     @Resource
     ApplicationDao applicationDao;
-
+    @Resource
+    SCMService scmService;
     /**
      * 创建应用分为两步
      * 1、用户创建基础信息
@@ -48,6 +51,12 @@ public class ApplicationService {
      */
     public Application getApplication(Long id) {
         return applicationDao.get(id);
+    }
+
+    public String getRepositoryLocation(Long applicationId){
+        Application application = this.getApplication(applicationId);
+        SCM scm = scmService.getSCM(application.getScmId());
+        return scm.getRepositoryLocation(application.getGitlabProjectId());
     }
 
     public List<Application> getAllAplication() {

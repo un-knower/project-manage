@@ -16,4 +16,6 @@ public interface BranchDao {
     List<Branch> getProjectRelateBranch(Long id);
 
     Branch getBranch(Long branchId);
+
+    List<Branch> getBranchList(List<Long> branchIds);
 }
