@@ -55,7 +55,7 @@ public class Group {
      */
     //构建状态 正在做什么事,已经完成的比例
     String buildPhrase;
-    Integer buidRate;
+    Integer buildRate;
     //推送状态
     String pushPhrase;
     Integer pushRate;
@@ -68,10 +68,12 @@ public class Group {
         this.applicationId = applicationId;
         this.projectId = projectId;
         this.branchId = branchId;
+        this.needReintegration = true;
 
     }
 
     public Group(Long id) {
         this.id = id;
+        this.needReintegration = true;
     }
 }

@@ -1,6 +1,9 @@
 package org.tsxuehu.pm.service.group;
 
 import com.alibaba.fastjson.JSON;
+import com.google.common.base.Function;
+import com.google.common.collect.FluentIterable;
+import com.google.common.collect.Lists;
 import org.springframework.stereotype.Service;
 import org.tsxuehu.pm.dao.BranchDao;
 import org.tsxuehu.pm.dao.GroupBranchRelationDao;
@@ -54,11 +57,13 @@ public class GroupService {
     public Group getGroup(Long groupId) {
         Group group = groupDao.getGroup(groupId);
         List<GroupBranchRelation> branchRelations = groupBranchRelationDao.getGroupRelatedBranches(groupId);
-        List<Long> branchIds = new ArrayList<>(branchRelations.size());
-        for (GroupBranchRelation branchRelation : branchRelations) {
-            branchIds.add(branchRelation.getBranchId());
-        }
-        List<Branch> branches = branchDao.getBranchList(branchIds);
+       
+        List<Branch> branches = branchDao.getBranchList(Lists.transform(branchRelations, new Function<GroupBranchRelation, Long>() {
+            @Override
+            public Long apply(GroupBranchRelation groupBranchRelation) {
+                return groupBranchRelation.getBranchId();
+            }
+        }));
         group.setRelatedBranches(branches);
         return group;
     }
@@ -82,9 +87,15 @@ public class GroupService {
      * @param groupId
      * @param branchStrIds branchId数组
      */
-    public void addBranch(Long groupId, String branchStrIds) {
-        List<Long> branchIds = JSON.parseObject(branchStrIds, List.class);
-        groupBranchRelationDao.addBranch(groupId, branchIds);
+    public void addBranch(final Long groupId, String branchStrIds) {
+        final List<Long> branchIds = JSON.parseObject(branchStrIds, List.class);
+
+        groupBranchRelationDao.addBranch(Lists.transform(branchIds, new Function<Long, GroupBranchRelation>() {
+            @Override
+            public GroupBranchRelation apply(Long id) {
+                return new GroupBranchRelation(id, groupId, null);
+            }
+        }));
     }
 
     public void removeBranch(Long groupId, Long branchId) {
@@ -103,7 +114,8 @@ public class GroupService {
      */
     public List<Group> getAllProjectGroup(Long projectId, String type) {
 
-        return getGroupList(null, projectId, null, type);
+        List<Group> groups = getGroupList(null, projectId, null, type);
+        return groups;
     }
 
     public List<Group> getAllApplicationGroup(Long applicationId, String type) {

@@ -12,5 +12,5 @@ public interface GroupBranchRelationDao {
 
     void remove(Long groupId, Long branchId);
 
-    void addBranch(Long groupId, List<Long> branchIds);
+    void addBranch(List<GroupBranchRelation> groupBranchRelations);
 }
