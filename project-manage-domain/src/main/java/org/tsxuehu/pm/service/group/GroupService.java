@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.google.common.base.Function;
 import com.google.common.collect.FluentIterable;
 import com.google.common.collect.Lists;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.tsxuehu.pm.dao.BranchDao;
 import org.tsxuehu.pm.dao.GroupBranchRelationDao;
@@ -57,7 +58,7 @@ public class GroupService {
     public Group getGroup(Long groupId) {
         Group group = groupDao.getGroup(groupId);
         List<GroupBranchRelation> branchRelations = groupBranchRelationDao.getGroupRelatedBranches(groupId);
-       
+
         List<Branch> branches = branchDao.getBranchList(Lists.transform(branchRelations, new Function<GroupBranchRelation, Long>() {
             @Override
             public Long apply(GroupBranchRelation groupBranchRelation) {
