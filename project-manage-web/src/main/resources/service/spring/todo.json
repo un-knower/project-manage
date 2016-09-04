@@ -1,9 +1,0 @@
-[
-  {
-    "service": "org.tsxuehu.midway.service.TodoService",
-    "function": "getTodoList",
-    "version": "1.0.0",
-    "parameters": [
-    ]
-  }
-]

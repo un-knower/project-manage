@@ -1,0 +1,102 @@
+[
+  {
+    "service": "org.tsxuehu.pm.service.application.ApplicationService",
+    "function": "getAllAplication",
+    "version": "1.0.0",
+    "parameters": [
+    ]
+  },
+  {
+    "service": "org.tsxuehu.pm.service.application.ApplicationService",
+    "function": "getApplication",
+    "version": "1.0.0",
+    "parameters": [
+      {
+        "name":"id",
+        "type":"java.lang.Long"
+      }
+    ]
+  },
+  {
+    "service": "org.tsxuehu.pm.service.application.ApplicationService",
+    "function": "updateApplication",
+    "version": "1.0.0",
+    "parameters": [
+      {
+        "name":"id",
+        "type":"java.lang.Long"
+      },
+      {
+        "name":"description",
+        "type":"java.lang.String"
+      },
+      {
+        "name":"scmId",
+        "type":"java.lang.Long"
+      },
+      {
+        "name":"gitlabProjectId",
+        "type":"java.lang.String"
+      },
+      {
+        "name":"dailyMachines",
+        "type":"java.lang.String"
+      },
+      {
+        "name":"preMachines",
+        "type":"java.lang.String"
+      },
+      {
+        "name":"formalMachines",
+        "type":"java.lang.String"
+      },
+      {
+        "name":"publishers",
+        "type":"java.lang.String"
+      },
+      {
+        "name":"mergeShellId",
+        "type":"java.lang.Long"
+      },
+      {
+        "name":"buildShellId",
+        "type":"java.lang.Long"
+      },
+      {
+        "name":"pushShellId",
+        "type":"java.lang.Long"
+      },
+      {
+        "name":"review",
+        "type":"java.lang.String"
+      },
+      {
+        "name":"appParam",
+        "type":"java.lang.String"
+      }
+    ]
+  },
+  {
+    "service": "org.tsxuehu.pm.service.application.ApplicationService",
+    "function": "createApplication",
+    "version": "1.0.0",
+    "parameters": [
+      {
+        "name":"name",
+        "type":"java.lang.String"
+      },
+      {
+        "name":"description",
+        "type":"java.lang.String"
+      },
+      {
+        "name":"creatorId",
+        "type":"java.lang.Long"
+      },
+      {
+        "name":"creatorName",
+        "type":"java.lang.String"
+      }
+    ]
+  }
+]

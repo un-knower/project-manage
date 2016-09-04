@@ -1,0 +1,13 @@
+[
+  {
+    "service": "org.tsxuehu.pm.service.user.UserService",
+    "function": "query",
+    "version": "1.0.0",
+    "parameters": [
+      {
+        "name":"name",
+        "type":"java.lang.String"
+      }
+    ]
+  }
+]

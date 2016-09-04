@@ -1,0 +1,62 @@
+[
+  {
+    "service": "org.tsxuehu.pm.service.scm.SCMService",
+    "function": "getAllSCM",
+    "version": "1.0.0",
+    "parameters": [
+    ]
+  },
+  {
+    "service": "org.tsxuehu.pm.service.scm.SCMService",
+    "function": "create",
+    "version": "1.0.0",
+    "parameters": [
+      {
+        "name":"name",
+        "type":"java.lang.String"
+      },
+      {
+        "name":"type",
+        "type":"java.lang.String"
+      },
+      {
+        "name":"configure",
+        "type":"java.lang.String"
+      }
+    ]
+  },
+  {
+    "service": "org.tsxuehu.pm.service.scm.SCMService",
+    "function": "update",
+    "version": "1.0.0",
+    "parameters": [
+      {
+        "name":"id",
+        "type":"java.lang.Long"
+      },
+      {
+        "name":"name",
+        "type":"java.lang.String"
+      },
+      {
+        "name":"type",
+        "type":"java.lang.String"
+      },
+      {
+        "name":"configure",
+        "type":"java.lang.String"
+      }
+    ]
+  },
+  {
+    "service": "org.tsxuehu.pm.service.scm.SCMService",
+    "function": "getSCM",
+    "version": "1.0.0",
+    "parameters": [
+      {
+        "name":"id",
+        "type":"java.lang.Long",
+      }
+    ]
+  }
+]
