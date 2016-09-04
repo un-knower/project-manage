@@ -1,9 +1,48 @@
 [
   {
-    "name": "todos",
+    "name": "getAllAplication",
     "version": "0.0.1",
-    "serviceId": "org.tsxuehu.midway.service.TodoService.getTodoList:1.0.0",
+    "serviceId": "org.tsxuehu.pm.service.application.ApplicationService.getAllAplication:1.0.0",
     "paramsMap": {
+    }
+  },
+  {
+    "name": "getApplication",
+    "version": "0.0.1",
+    "serviceId": "org.tsxuehu.pm.service.application.ApplicationService.getApplication:1.0.0",
+    "paramsMap": {
+      "id":"id"
+    }
+  },
+  {
+    "name": "updateApplication",
+    "version": "0.0.1",
+    "serviceId": "org.tsxuehu.pm.service.application.ApplicationService.updateApplication:1.0.0",
+    "paramsMap": {
+      "id":"id",
+      "description":"description",
+      "scmId":"scmId",
+      "gitlabProjectId":"gitlabProjectId",
+      "dailyMachines":"dailyMachines",
+      "preMachines":"preMachines",
+      "formalMachines":"formalMachines",
+      "publishers":"publishers",
+      "mergeShellId":"mergeShellId",
+      "buildShellId":"buildShellId",
+      "pushShellId":"pushShellId",
+      "review":"review",
+      "appParam":"appParam"
+    }
+  },
+  {
+    "name": "createApplication",
+    "version": "0.0.1",
+    "serviceId": "org.tsxuehu.pm.service.application.ApplicationService.createApplication:1.0.0",
+    "paramsMap": {
+      "name":"name",
+      "description":"description",
+      "creatorId":"creatorId",
+      "creatorName":"creatorName"
     }
   }
 ]

@@ -1,0 +1,10 @@
+[
+  {
+    "name": "queryuser",
+    "version": "0.0.1",
+    "serviceId": "org.tsxuehu.pm.service.user.UserService.query:1.0.0",
+    "paramsMap": {
+      "name":"name"
+    }
+  }
+]

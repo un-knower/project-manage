@@ -1,0 +1,56 @@
+[
+  {
+    "name": "getAllShellType",
+    "version": "0.0.1",
+    "serviceId": "org.tsxuehu.pm.service.build.ShellService.getAllShellType:1.0.0",
+    "paramsMap": {
+    }
+  },
+  {
+    "name": "getShell",
+    "version": "0.0.1",
+    "serviceId": "org.tsxuehu.pm.service.build.ShellService.getAllShellType:1.0.0",
+    "paramsMap": {
+      "id":"id"
+    }
+  },
+  {
+    "name": "createShell",
+    "version": "0.0.1",
+    "serviceId": "org.tsxuehu.pm.service.build.ShellService.createShell:1.0.0",
+    "paramsMap": {
+      "name":"name",
+      "description":"description",
+      "type":"type",
+      "content":"content",
+    }
+  },
+  {
+    "name": "update",
+    "version": "0.0.1",
+    "serviceId": "org.tsxuehu.pm.service.build.ShellService.update:1.0.0",
+    "paramsMap": {
+      "id":"id",
+      "name":"name",
+      "description":"description",
+      "type":"type",
+      "content":"content",
+    }
+  },
+  {
+    "name": "getAllShell",
+    "version": "0.0.1",
+    "serviceId": "org.tsxuehu.pm.service.build.ShellService.getAllShell:1.0.0",
+    "paramsMap": {
+    }
+  },
+  {
+    "name": "queryShell",
+    "version": "0.0.1",
+    "serviceId": "org.tsxuehu.pm.service.build.ShellService.queryShell:1.0.0",
+    "paramsMap": {
+      "shellType":"shellType",
+      "name":"name"
+    }
+  }
+]

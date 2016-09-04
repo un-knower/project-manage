@@ -1,0 +1,38 @@
+[
+  {
+    "name": "getAllSCM",
+    "version": "0.0.1",
+    "serviceId": "org.tsxuehu.pm.service.scm.SCMService.getAllSCM:1.0.0",
+    "paramsMap": {
+    }
+  },
+  {
+    "name": "create",
+    "version": "0.0.1",
+    "serviceId": "org.tsxuehu.pm.service.scm.SCMService.create:1.0.0",
+    "paramsMap": {
+      "name":"name",
+      "type":"type",
+      "configure":"configure",
+    }
+  },
+  {
+    "name": "update",
+    "version": "0.0.1",
+    "serviceId": "org.tsxuehu.pm.service.scm.SCMService.update:1.0.0",
+    "paramsMap": {
+      "id":"id",
+      "name":"name",
+      "type":"type",
+      "configure":"configure",
+    }
+  },
+  {
+    "name": "getSCM",
+    "version": "0.0.1",
+    "serviceId": "org.tsxuehu.pm.service.scm.SCMService.getSCM:1.0.0",
+    "paramsMap": {
+      "id":"id"
+    }
+  }
+]

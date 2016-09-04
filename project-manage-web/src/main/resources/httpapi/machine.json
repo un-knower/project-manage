@@ -1,0 +1,42 @@
+[
+  {
+    "name": "getAllMachine",
+    "version": "0.0.1",
+    "serviceId": "org.tsxuehu.pm.service.build.MachineService.getAllMachine:1.0.0",
+    "paramsMap": {
+    }
+  },
+  {
+    "name": "getMachine",
+    "version": "0.0.1",
+    "serviceId": "org.tsxuehu.pm.service.build.MachineService.getMachine:1.0.0",
+    "paramsMap": {
+      "id":"id"
+    }
+  },
+  {
+    "name": "createMachine",
+    "version": "0.0.1",
+    "serviceId": "org.tsxuehu.pm.service.build.MachineService.createMachine:1.0.0",
+    "paramsMap": {
+      "name":"name",
+      "location":"location",
+      "port":"port",
+      "username":"username",
+      "password":"password"
+    }
+  },
+  {
+    "name": "updateMachine",
+    "version": "0.0.1",
+    "serviceId": "org.tsxuehu.pm.service.build.MachineService.updateMachine:1.0.0",
+    "paramsMap": {
+      "id":"id",
+      "name":"name",
+      "location":"location",
+      "port":"port",
+      "username":"username",
+      "password":"password"
+    }
+  }
+]
