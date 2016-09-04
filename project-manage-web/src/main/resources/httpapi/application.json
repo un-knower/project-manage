@@ -1,0 +1,9 @@
+[
+  {
+    "name": "todos",
+    "version": "0.0.1",
+    "serviceId": "org.tsxuehu.midway.service.TodoService.getTodoList:1.0.0",
+    "paramsMap": {
+    }
+  }
+]

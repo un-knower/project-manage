@@ -21,7 +21,7 @@ import java.util.Map;
  * Created by tsxuehu on 16/7/3.
  */
 @Controller
-public class WebController {
+public class APIController {
     @Resource
     ApiRegistry apiService;
 
@@ -59,14 +59,6 @@ public class WebController {
             e.printStackTrace();
         }
         return JSON.toJSONString(result);
-    }
-
-    @RequestMapping(value = {"/*", "/index"}, method = RequestMethod.GET)
-    public ModelAndView html(HttpServletRequest request, HttpSession session) {
-        Map<String, String> user = new HashMap<>();
-        user.put("name", request.getRequestURI());
-
-        return new ModelAndView("helloworld", "user", user);
     }
 
     public String getValue(String paramName, HttpServletRequest request, HttpSession session, Map<String, String[]> maps) {

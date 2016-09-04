@@ -1,0 +1,13 @@
+[
+  {
+    "service": "org.tsxuehu.midway.service.Hello",
+    "function": "sayHello",
+    "version": "1.0.0",
+    "parameters": [
+      {
+        "name":"name",
+        "type":"java.lang.String",
+      }
+    ]
+  }
+]

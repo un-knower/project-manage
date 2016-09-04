@@ -34,7 +34,7 @@
     </mvc:annotation-driven>
 
     <!--这一句指定了扫描注解生成Controller的根包名-->
-    <context:component-scan base-package="org.tsxuehu.pm.web.controller"/>
+    <context:component-scan base-package="org.tsxuehu.midway.web.controller"/>
 
     <mvc:resources location="/assets/" mapping="/assets/**"/>
 

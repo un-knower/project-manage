@@ -16,13 +16,13 @@ import static org.junit.Assert.*;
 public class GitlabSCMTest {
     @Test
     public void gitlab() throws Exception {
-        GitlabAPI gitlabAPI = GitlabAPI.connect("http://gitlab.qima-inc.com/", "2iAZn7fTUjKV9xsiS4KR");
+      /*  GitlabAPI gitlabAPI = GitlabAPI.connect("http://gitlab.qima-inc.com/", "2iAZn7fTUjKV9xsiS4KR");
         Pagination pagination =new Pagination();
         pagination.setPage(1);
         pagination.setPerPage(5);
     //    List<GitlabCommit> result = gitlabAPI.getAllCommits("bower/ZenUI",pagination,"master");
         List<GitlabCommit> result =  gitlabAPI.getLastCommits("bower/ZenUI","master");
-        System.out.println(JSON.toJSON(result));
+        System.out.println(JSON.toJSON(result));*/
 
     }
 }

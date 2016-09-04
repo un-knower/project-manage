@@ -1,0 +1,28 @@
+[
+  {
+    "path": "index.html",
+    "title": "todo管理",
+    "assertsList": [
+      {
+        "project": "xuehuroy/front-pages",
+        "verion": "0.0.3",
+        "cssFiles": [
+          "index.css"
+        ],
+        "jsFiles": [
+          "common.js",
+          "index.js"
+        ]
+      }
+    ],
+    "injectDatas": [
+      {
+        "name": "hello",
+        "serviceId": "org.tsxuehu.midway.service.Hello.sayHello:1.0.0",
+        "paramsMap": {
+          "name" : "username"
+        }
+      }
+    ]
+  }
+]

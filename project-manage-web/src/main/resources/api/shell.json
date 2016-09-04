@@ -8,8 +8,11 @@
     ]
   },
   {
-    "key": "org.tsxuehu.pm.service.build.ShellService.getShell",
+    "key": "getXX",
     "version": "1.0.0",
+
+
+
     "className": "org.tsxuehu.pm.service.build.ShellService",
     "method": "getShell",
     "serviceParams": [
